@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 import { Typography } from "@mui/material";
-import { LinksArea, StyledAppbar, StyledToolbar } from "../styles/NavbarStyles";
+import { LinksArea, StyledToolbar } from "../../styles/NavbarStyles";
 
 function Navbar(){
     return(
@@ -17,5 +16,3 @@ function Navbar(){
 }
 
 export default Navbar;
-=======
->>>>>>> 07217f31444204978dc46d52d9088fa6705ae92f
