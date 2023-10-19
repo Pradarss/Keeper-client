@@ -3,6 +3,8 @@ import React from "react";
 import Navbar from './Navbar';
 import Footer from "./Footer";
 import Home from "./Home";
+import Login from "./Login";
+import Dashboard from "./Dashboard";
 
 function App(){
     return(

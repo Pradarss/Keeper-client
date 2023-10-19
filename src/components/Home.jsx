@@ -1,6 +1,10 @@
+import { HomeArea } from "../styles/HomeStyles";
+
 function Home(){
     return(
-        <h1> Home</h1>
+        <HomeArea >
+
+        </HomeArea>
 
     )
 }

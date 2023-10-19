@@ -1,15 +1,17 @@
+import { Typography } from "@mui/material";
+import { LinksArea, StyledAppbar, StyledToolbar } from "../styles/NavbarStyles";
+
 function Navbar(){
     return(
-        <StyledAppbar>
+        // <StyledAppbar>
         <StyledToolbar >
-           <Typography variant="h6">Portfolio</Typography> 
+           <Typography variant="h6">Name</Typography> 
             <LinksArea>
-                <Typography>Home</Typography>
-                <Typography>Contact me</Typography>
-                <Typography>Dwownload CV</Typography>
+                <Typography>Login</Typography>
+                <Typography>SignUp</Typography>
             </LinksArea>
         </StyledToolbar>
-        </StyledAppbar>
+       
     )
 }
 
