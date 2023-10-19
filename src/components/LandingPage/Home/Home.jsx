@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
-import { HomeArea } from "../../styles/HomeStyles";
-import HomeNavbar from "./HomeNavbar";
+import { HomeArea } from "./HomeStyles";
+import HomeNavbar from "./HomeStyles";
 
 function Home(){
     return(
