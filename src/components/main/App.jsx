@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from './LandingPage/HomeNavbar';
 import Footer from "./Footer";
 import Home from "./LandingPage/Home";
-import Login from "./LoginPage/Login";
+import Login from "../LoginPage/Login";
 // import Dashboard from "./Dashboard";
 
 function App(){
