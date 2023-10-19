@@ -9,7 +9,7 @@ function Footer(){
         <FooterArea >
         <div>
           <div>
-            <h1>Name</h1>
+            <h1 sx={{}}>Name</h1>
           </div>
           <div>
           <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
