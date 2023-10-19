@@ -1,6 +1,15 @@
 function Navbar(){
     return(
-        <h1>Navbar</h1>
+        <StyledAppbar>
+        <StyledToolbar >
+           <Typography variant="h6">Portfolio</Typography> 
+            <LinksArea>
+                <Typography>Home</Typography>
+                <Typography>Contact me</Typography>
+                <Typography>Dwownload CV</Typography>
+            </LinksArea>
+        </StyledToolbar>
+        </StyledAppbar>
     )
 }
 
