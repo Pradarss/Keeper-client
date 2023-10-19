@@ -15,4 +15,4 @@ function Navbar(){
     )
 }
 
-export default Navbar;t
+export default Navbar;

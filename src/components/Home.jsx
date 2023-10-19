@@ -4,11 +4,9 @@ import Navbar from "./Navbar";
 function Home(){
     return(
         <HomeArea >
-            <Navbar />
+            {/* <Navbar /> */}
         </HomeArea>
-
-
-    )
+    );
 }
 
 export default Home;
