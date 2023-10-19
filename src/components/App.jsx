@@ -9,7 +9,7 @@ import Login from "./LoginPage/Login";
 function App(){
     return(
         <Router>
-            <Navbar />  
+            {/* <Navbar />   */}
 
             <Routes>
                 <Route path="/" exact element={<Home />} />
