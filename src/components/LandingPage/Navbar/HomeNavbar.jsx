@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
-import { LinksArea, StyledToolbar } from "./Navbar.jsx";
+import { LinksArea, StyledToolbar } from "./NavbarStyles";
 
-function Navbar(){
+function HomeNavbar(){
     return(
         // <StyledAppbar>
         <StyledToolbar >
@@ -15,4 +15,4 @@ function Navbar(){
     )
 }
 
-export default Navbar;
+export default HomeNavbar;
