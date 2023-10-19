@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { LinksArea, StyledAppbar, StyledToolbar } from "./LandingPage/Navbar/NavbarStyles";
+import { LinksArea, StyledAppbar, StyledToolbar } from "../LandingPage/Navbar/NavbarStyles";
 
 function Navbar(){
     return(
