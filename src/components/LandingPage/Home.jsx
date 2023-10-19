@@ -1,10 +1,13 @@
+import { Typography } from "@mui/material";
 import { HomeArea } from "../../styles/HomeStyles";
-import Navbar from "../Navbar";
+import HomeNavbar from "./HomeNavbar";
 
 function Home(){
     return(
         <HomeArea >
-            {/* <Navbar /> */}
+             <HomeNavbar />
+
+             <Typography></Typography>
         </HomeArea>
 
 

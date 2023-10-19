@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import React from "react";
-import Navbar from './Navbar';
+import Navbar from './LandingPage/HomeNavbar';
 import Footer from "./Footer";
 import Home from "./LandingPage/Home";
 import Login from "./LoginPage/Login";
-import Dashboard from "./Dashboard";
+// import Dashboard from "./Dashboard";
 
 function App(){
     return(
@@ -14,7 +14,7 @@ function App(){
             <Routes>
                 <Route path="/" exact element={<Home />} />
                 <Route path="/login" exact element={<Login />} />
-                <Route path="/dashboard" exact element={<Dashboard />} />
+                {/* <Route path="/dashboard" exact element={<Dashboard />} /> */}
             </Routes>
 
             <Footer />
