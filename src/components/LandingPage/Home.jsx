@@ -1,5 +1,5 @@
-import { HomeArea } from "../styles/HomeStyles";
-import Navbar from "./Navbar";
+import { HomeArea } from "../../styles/HomeStyles";
+import Navbar from "../Navbar";
 
 function Home(){
     return(
