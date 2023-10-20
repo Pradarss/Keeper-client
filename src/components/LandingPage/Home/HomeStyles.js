@@ -25,7 +25,7 @@ export const HomeRight = styled(Box)(({theme})=>({
     backgroundImage: "url('/assets/bg.webp')",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
-    margin: "55px"
+    margin: "55px",
 }));
 
 export const HomeLeft = styled(Box)(({theme})=>({
@@ -43,7 +43,8 @@ export const HomeTitle = styled(Box)(({theme})=>({
     justifyContent: "center",
     alignItems: "end",
     display: "flex",
-    padding: "2vh 0"
+    padding: "2vh 0",
+    
 }));
 
 export const HomePara = styled(Box)(({theme})=>({
@@ -61,7 +62,7 @@ export const CardArea = styled(Box)(({theme})=>({
     display: "flex", 
     flexDirection: "column",
     justifyContent: "center",
-    // backgroundColor: "#e9c46a",
+    backgroundColor: "#e9c46a",
     alignItems: "center",
     gap: "6rem",
     // backgroundImage: 'url("https://images.ctfassets.net/rz1oowkt5gyp/7lTGeXbBRNRcLaVk2MdBjtJ/99c266ed4cb8cc63bd0c388071f01ff6/white-wave-bg.svg")',
