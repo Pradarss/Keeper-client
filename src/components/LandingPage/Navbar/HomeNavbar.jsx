@@ -1,19 +1,18 @@
 import { Link } from 'react-router-dom';
 import { ButtonGroup, Typography } from "@mui/material";
-import { LinksArea, StyledToolbar } from "./NavbarStyles";
-import Button from '@mui/material/Button';
-
+import { Buttonstyle, LinksArea, StyledToolbar } from "./NavbarStyles";
 
 
 function HomeNavbar() {
+
     return (
         // <StyledAppbar>
         <StyledToolbar >
-            <Typography variant="h6">Name</Typography>
+                <Typography variant="h6"><Link to="/" style={{textDecoration: "none"}} >Name</Link></Typography>
             <LinksArea>
-                <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                    <Link to="/login"><Button>Login</Button></Link>
-                    <Link to="/signup"><Button>SignUp</Button></Link>
+                <ButtonGroup size='medium' aria-label="contained primary button group">
+                    <Link to="/login"><Buttonstyle>Login</Buttonstyle></Link>
+                    <Link to="/signup"><Buttonstyle>SignUp</Buttonstyle></Link>
                 </ButtonGroup>
             </LinksArea>
         </StyledToolbar>
