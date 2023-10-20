@@ -15,7 +15,7 @@ function Home(){
                             <Typography variant='h3'>Trello lets you work more collaboratively and get more done.</Typography>
                         </HomeTitle>
                         <HomePara>
-                            <Typography variant='p'>Trello's boards, lists, and cards enable you to organize and prioritize your projects in a fun, flexible, and rewarding way.</Typography>
+                            <Typography sx={{fontFamily: "'Sacramento', cursive"}} variant='p'>Trello's boards, lists, and cards enable you to organize and prioritize your projects in a fun, flexible, and rewarding way.</Typography>
                         </HomePara>
                     </HomeLeft>
         <HomeRight>
@@ -24,7 +24,7 @@ function Home(){
     </HomeArea>
         </LandingArea>
         <CardArea>
-            <Typography variant="h3">What we offer</Typography>
+            <Typography sx={{fontFamily: "'Sacramento', cursive"}} variant="h3">What we offer</Typography>
             <Cards>
                     {trelloCards.map((item, index) => (
                 <InfoCard key={index} {...item} />

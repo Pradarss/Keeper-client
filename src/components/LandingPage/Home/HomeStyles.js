@@ -25,7 +25,7 @@ export const HomeRight = styled(Box)(({theme})=>({
     backgroundImage: "url('/assets/bg.webp')",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
-    margin: "55px"
+    margin: "55px",
 }));
 
 export const HomeLeft = styled(Box)(({theme})=>({
@@ -43,7 +43,8 @@ export const HomeTitle = styled(Box)(({theme})=>({
     justifyContent: "center",
     alignItems: "end",
     display: "flex",
-    padding: "2vh 0"
+    padding: "2vh 0",
+    
 }));
 
 export const HomePara = styled(Box)(({theme})=>({

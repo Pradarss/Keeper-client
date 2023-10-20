@@ -11,7 +11,7 @@ function InfoCard(props){
             image= {decodedImageUrl}
             /> */}
             <CardContent>
-            <Typography gutterBottom variant="h6" component="div">
+            <Typography sx={{fontFamily: "'Montserrat', sans-serif"}} gutterBottom variant="h6" component="div">
             {props.title}
             </Typography>
             <Divider variant="middle" />
