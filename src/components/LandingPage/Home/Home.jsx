@@ -24,7 +24,7 @@ function Home(){
     </HomeArea>
         </LandingArea>
         <CardArea>
-            <Typography sx={{fontFamily: "'Sacramento', cursive"}} variant="h3">What we offer</Typography>
+            <Typography variant="h3">What we offer</Typography>
             <Cards>
                     {trelloCards.map((item, index) => (
                 <InfoCard key={index} {...item} />

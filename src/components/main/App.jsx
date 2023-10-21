@@ -4,6 +4,9 @@ import React from "react";
 import Footer from "./Footer";
 import Home from "../LandingPage/Home/Home"
 import Login from "../LoginPage/Login";
+import SignUp from "../LoginPage/Signup";
+import Manager from "../Dashboards/manager/Manager";
+import Employee from "../Dashboards/employee/Employee";
 // import Dashboard from "./Dashboard";
 
 function App(){
@@ -14,7 +17,9 @@ function App(){
             <Routes>
                 <Route path="/" exact element={<Home />} />
                 <Route path="/login" exact element={<Login />} />
-                {/* <Route path="/dashboard" exact element={<Dashboard />} /> */}
+                <Route path="/signup" exact element={<SignUp />} />
+                <Route path="/employee" exact element={<Employee />} />
+                <Route path="/manager" exact element={<Manager />} />
             </Routes>
 
             <Footer />
