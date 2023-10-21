@@ -10,9 +10,9 @@ const contents = ["first","second","third","fourth","fifth"];
 
 function Employee(){
     return(
-        <Box sx={{backgroundImage: "url('assets/dashbg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+        <Box sx={{backgroundImage: "url('assets/dashbg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover",}}>
             <DashNav />
-            <Grid container spacing={1}>
+            <Grid container spacing={1} mt={1}>
 
             <Grid item xs={2}>
 
