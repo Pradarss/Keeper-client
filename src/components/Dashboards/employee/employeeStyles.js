@@ -2,12 +2,13 @@ import styled from "@emotion/styled";
 import { Box, Typography } from "@mui/material";
 
 export const UserArea = styled(Box)(({theme})=>({
-    backgroundColor: "red",
+    // backgroundColor: "red",S
     minHeight: "100vh",
+    
    }))
 
    export const ListArea = styled(Box)(({theme})=>({
-    backgroundColor: "blue",
+    // backgroundColor: "blue",
     minHeight: "100vh",
     padding: "2rem"
    }))
