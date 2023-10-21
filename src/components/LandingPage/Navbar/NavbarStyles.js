@@ -19,7 +19,10 @@ export const LinksArea = styled(Box)(({theme})=>({
 }))
 
 export const Buttonstyle=styled(Button)(({theme})=>({
-    background: "lightgreen",
+    background: "rgba(255, 255, 255, 0.2)",
+    color: "#264653",
+    backdropFilter: "blur(10px)",
+    border: "1px solid rgba(255, 255, 255, 0.125)",
     '&:hover': {
         backgroundColor: '#264653',
         color: "white"
