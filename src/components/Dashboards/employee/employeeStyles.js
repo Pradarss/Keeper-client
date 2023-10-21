@@ -7,6 +7,11 @@ export const UserArea = styled(Box)(({theme})=>({
     background: "rgba(255, 255, 255, 0.2)",
     backdropFilter: "blur(10px)",
     border: "1px solid rgba(255, 255, 255, 0.125)",
+    // alignItems: "center",
+    justifyContent: "center",
+    padding: "2rem",    
+    display: "flex",
+    borderRadius: "20px",
    }))
 
    export const ListArea = styled(Box)(({theme})=>({
