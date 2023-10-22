@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 
 export const UserArea = styled(Box)(({theme})=>({
     // backgroundColor: "red",S
-    minHeight: "100vh",
+    minHeight: "50vh",
     background: "rgba(255, 255, 255, 0.2)",
     backdropFilter: "blur(10px)",
     border: "1px solid rgba(255, 255, 255, 0.125)",

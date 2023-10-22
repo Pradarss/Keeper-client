@@ -36,7 +36,7 @@ function Employee(){
             <DashNav />
             <Grid container spacing={1} mt={1}>
 
-            <Grid item xs={2}>
+            <Grid item xs={2}>  
 
                 <UserArea>
                     <UserMenu />
