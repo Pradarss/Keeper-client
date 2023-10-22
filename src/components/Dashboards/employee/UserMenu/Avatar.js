@@ -7,7 +7,7 @@ function NameAvatar({ name }) {
   }
 
   return (
-    <Avatar>
+    <Avatar sx={{height: "8rem", width: "100%"}}>
       {getFirstCharacter(name)}
     </Avatar>
   );

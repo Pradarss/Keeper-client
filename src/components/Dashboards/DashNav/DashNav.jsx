@@ -1,14 +1,16 @@
 import { Avatar, ButtonGroup, Typography } from "@mui/material";
 import { Buttonstyle, LinksArea, StyledToolbar } from "./DashNavStyles";
 import { Link } from "react-router-dom";
-import createAvatar from "./Avatar";
+import NameAvatar from "./Avatar";
+import React from "react";
 
 function DashNav(){
+
     return(
         <StyledToolbar >
         <Typography variant="h6"><Link to="/" style={{textDecoration: "none", fontSize: "2.5rem", color: "#264653"}} >Trello</Link></Typography>
     <LinksArea>
-        <Avatar></Avatar>
+        <NameAvatar onClick={handleOpenNavMenu} name="Trello" />
     </LinksArea>
 </StyledToolbar>
     )

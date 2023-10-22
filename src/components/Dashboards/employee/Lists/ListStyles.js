@@ -29,3 +29,10 @@ export const NoteArea = styled(Box)(({theme})=>({
     cursor:" pointer",
     outline: "none",
    }))
+
+   
+   export const NoteTime = styled(Typography)(({theme})=>({
+    display: "flex",
+    float: "left",
+    margin: "9px",
+   }))
