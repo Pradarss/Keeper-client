@@ -15,7 +15,8 @@ export const StyledToolbar = styled(Toolbar)(({theme})=>({
 export const LinksArea = styled(Box)(({theme})=>({
  display:"flex",
  justifyContent:"space-between",
- gap: "20px"
+ gap: "10px",
+ alignItems: "center",
 }))
 
 export const Buttonstyle=styled(Button)(({theme})=>({

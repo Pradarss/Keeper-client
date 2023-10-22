@@ -35,4 +35,6 @@ export const NoteArea = styled(Box)(({theme})=>({
     display: "flex",
     float: "left",
     margin: "9px",
+    backgroundColor: "#bdbdbd",
+    padding: "5px"
    }))

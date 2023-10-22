@@ -19,8 +19,8 @@ function UserMenu(){
             </Box>
                
             <Box sx={{textAlign: "center"}}>
-                <Typography variant="h5" mb={2}>Settings</Typography>
                 <Typography variant="body1" textAlign={"left"}>Dark mode</Typography>
+                <Typography variant="body1" textAlign={"left"}>Logout</Typography>
             </Box>
                 
         </Stack>

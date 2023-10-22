@@ -10,7 +10,8 @@ function DashNav(){
         <StyledToolbar >
         <Typography variant="h6"><Link to="/" style={{textDecoration: "none", fontSize: "2.5rem", color: "#264653"}} >Trello</Link></Typography>
     <LinksArea>
-        <NameAvatar onClick={handleOpenNavMenu} name="Trello" />
+        <NameAvatar name="Trello" />
+        <Typography variant="h5">Trello</Typography>
     </LinksArea>
 </StyledToolbar>
     )
