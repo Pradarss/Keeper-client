@@ -1,10 +1,5 @@
-import { Avatar, Box, Typography } from "@mui/material";
 import DoneIcon from '@mui/icons-material/Done';
-import { Button } from "bootstrap";
 import { DoneAvatar, NoteArea, NoteContent, NoteTime } from "./ListStyles";
-import Done from "./Done";
-import { getCurrentTime } from "./time";
-import { useState } from "react";
 
 function ToDo(props){
 

@@ -1,8 +1,5 @@
-import { useState } from "react";
 import { DoneAvatar, NoteArea, NoteContent, NoteTime } from "./ListStyles";
 import DoneAllIcon from '@mui/icons-material/DoneAll';
-import { getCurrentTime } from "./time";
-import { get } from "mongoose";
 
 
 function Doing(props){

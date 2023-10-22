@@ -1,4 +1,4 @@
-import { Avatar, Box, Container, Divider, Stack, Typography } from "@mui/material";
+import {Box, Container, Divider, Stack, Typography } from "@mui/material";
 import NameAvatar from "./Avatar";
 
 function UserMenu(){

@@ -1,5 +1,5 @@
-import { Avatar, ButtonGroup, Typography } from "@mui/material";
-import { Buttonstyle, LinksArea, StyledToolbar } from "./DashNavStyles";
+import { Typography } from "@mui/material";
+import { LinksArea, StyledToolbar } from "./DashNavStyles";
 import { Link } from "react-router-dom";
 import NameAvatar from "./Avatar";
 import React from "react";
