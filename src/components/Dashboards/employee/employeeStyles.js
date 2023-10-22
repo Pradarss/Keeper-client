@@ -25,6 +25,7 @@ export const UserArea = styled(Box)(({theme})=>({
         borderRadius: "7px",
         boxShadow: "0 2px 5px #ccc",
         padding: "10px",
+        minWidth: "285px",
         // width: "240px",
         // margin: "16px",
         // float: "left",

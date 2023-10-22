@@ -34,7 +34,8 @@ export const NoteArea = styled(Box)(({theme})=>({
    export const NoteTime = styled(Typography)(({theme})=>({
     display: "flex",
     float: "left",
+    fontSize: "10px",
     margin: "9px",
     backgroundColor: "#bdbdbd",
-    padding: "5px"
+    padding: "3px"
    }))
