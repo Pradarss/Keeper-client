@@ -1,4 +1,4 @@
-import { DoneAvatar, NoteArea, NoteContent, NoteTime } from "./ListStyles";
+import { DoneAvatar, DoneBy, NoteArea, NoteContent, NoteInfo, NoteTime } from "./ListStyles";
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 
 
@@ -12,10 +12,13 @@ function Doing(props){
     return(
         <NoteArea>
         <NoteContent>{props.content}</NoteContent>
-        <NoteTime display="flex" float="left" margin="9px" variant="body2">{props.showTime}</NoteTime>
-        <DoneAvatar>
-            <DoneAllIcon onClick={handleMoveToDone}/>
-        </DoneAvatar>
+        <NoteInfo>
+            <NoteTime display="flex" float="left" margin="9px" variant="body2">{props.showTime}</NoteTime>
+            <DoneBy>By Trello</DoneBy>
+            <DoneAvatar>
+                <DoneAllIcon onClick={handleMoveToDone}/>
+            </DoneAvatar>
+        </NoteInfo>
       </NoteArea>
     )
 }
