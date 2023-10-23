@@ -1,6 +1,13 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
 
+export const iconstyle= {
+    color: 'white',
+    margin : '2px'
+  }
+  
+export const icons={border: '1px solid white', borderRadius: '50%', padding: '3px', margin: '2px'};
+
 export const FooterArea = styled(Box)(({theme})=>({
     width: "100%",
     height: "15vh",
