@@ -1,8 +1,12 @@
 import React from 'react';
-// import LinkedInIcon from '@mui/icons-material/LinkedIn';
-// import InstagramIcon from '@mui/icons-material/Instagram';
-// import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { FooterArea } from './FooterStyles';
+
+const iconstyle= {
+  color: 'white'
+}
 
 function Footer(){
     return(
@@ -13,14 +17,14 @@ function Footer(){
           </div>
           <div>
           <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-              {/* <InstagramIcon /> */}
+              <InstagramIcon style={iconstyle} />
               
             </a>
             <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-              {/* <LinkedInIcon /> */}
+              <LinkedInIcon style={iconstyle} />
             </a>
             <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-              {/* <GitHubIcon /> */}
+              <GitHubIcon style={iconstyle} />
             </a>
           </div>
         </div>
