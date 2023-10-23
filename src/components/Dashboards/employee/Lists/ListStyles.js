@@ -7,7 +7,8 @@ export const NoteArea = styled(Box)(({theme})=>({
     width: "240px",
     minHeight: "75px",
     padding: "2rem",
-    borderRadius: "20px"
+    borderRadius: "20px",
+    position: "relative",
    }))
 
    export const NoteContent = styled(Typography)(({theme})=>({
@@ -19,13 +20,49 @@ export const NoteArea = styled(Box)(({theme})=>({
 
    export const DoneAvatar = styled(Avatar)(({theme})=>({
     position: "relative",
-    float: "right",
+    // float: "right",
     // marginRight:" 10px",
-    color: "#f5ba13",
+    color: "#14213d",
     border: "none",
     width: "36px",
     height:" 36px",
     borderRadius:" 50%",
     cursor:" pointer",
     outline: "none",
+    backgroundColor: "#ced4da"
+   }))
+
+   
+   export const NoteTime = styled(Typography)(({theme})=>({
+    display: "flex",
+    // float: "left",
+    fontSize: "10px",
+    margin: "9px",
+    backgroundColor: "#ced4da",
+    padding: "3px",
+    color: "#14213d",
+    borderRadius: "10px",
+    alignItems: "center"
+   }))
+
+      
+   export const DoneBy = styled(Typography)(({theme})=>({
+    display: "flex",
+    // float: "left",
+    fontSize: "10px",
+    margin: "9px",
+    backgroundColor: "#ced4da",
+    padding: "5px",
+    color: "#14213d",
+    borderRadius: "10px",
+    alignItems: "center",
+   }))
+
+   export const NoteInfo = styled(Box)(({theme})=>({
+    position: "absolute",
+    bottom: "0",
+    justifyContent: "space-between",
+    display: "flex",
+    gap: "35px",
+    width: "242px"
    }))

@@ -1,16 +1,23 @@
-import { Avatar, Box, Typography } from "@mui/material";
 import DoneIcon from '@mui/icons-material/Done';
-import { Button } from "bootstrap";
-import { DoneAvatar, NoteArea, NoteContent } from "./ListStyles";
-import Done from "./Done";
-
+import { DoneAvatar, NoteArea, NoteContent, NoteInfo, NoteTime } from "./ListStyles";
 function ToDo(props){
+
+    const handleMoveToDoing = ()=>{
+        if (props.content) {
+            props.onMoveToDoing(props.content);
+        }
+        // props.updateShowTime();
+    }
+
     return(
         <NoteArea>
         <NoteContent>{props.content}</NoteContent>
-        <DoneAvatar>
-            <DoneIcon />
-        </DoneAvatar>
+        <NoteInfo>
+            <NoteTime variant="body2">{props.showTime}</NoteTime>
+            <DoneAvatar>
+                <DoneIcon onClick={handleMoveToDoing} />
+            </DoneAvatar>
+        </NoteInfo>
       </NoteArea>
     )
 }
