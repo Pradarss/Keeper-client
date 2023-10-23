@@ -1,7 +1,8 @@
-import {Box, Container, Divider, Stack, Typography } from "@mui/material";
+import {Box, Container, Divider} from "@mui/material";
 import NameAvatar from "./Avatar";
 import { Heading, OtherInfo, SubHeading } from "./UserMenuStyles";
 import { UserArea } from "./UserMenuStyles";
+import { Link } from "react-router-dom";
 
 function UserMenu(){
     return(
@@ -20,7 +21,7 @@ function UserMenu(){
             </OtherInfo>
                
             <OtherInfo>
-                <Heading>Logout</Heading>
+                <Heading><Link style={{textDecoration: "none", color: "black"}} to="/logout">Logout</Link></Heading>
             </OtherInfo>
                 
         </UserArea>
