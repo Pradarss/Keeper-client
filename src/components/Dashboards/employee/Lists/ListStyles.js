@@ -61,7 +61,8 @@ export const NoteArea = styled(Box)(({theme})=>({
    export const NoteInfo = styled(Box)(({theme})=>({
     position: "absolute",
     bottom: "0",
-    // justifyContent: "space-evenly",
+    justifyContent: "space-between",
     display: "flex",
-    gap: "35px"
+    gap: "35px",
+    width: "242px"
    }))

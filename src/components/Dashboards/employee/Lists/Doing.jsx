@@ -5,8 +5,10 @@ import DoneAllIcon from '@mui/icons-material/DoneAll';
 function Doing(props){
 
     const handleMoveToDone = ()=>{
-        props.onMoveToDone(props.content);
-        // props.updateShowTime();
+        if (props.content) {
+            props.onMoveToDone(props.content);
+            // props.updateShowTime();
+        }
     }
 
     return(

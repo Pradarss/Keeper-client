@@ -12,23 +12,25 @@ const contents = ["first","second","third","fourth","fifth"];
 
 function Employee(){
 
-    const[todo, setTodo] = useState(contents);
+    const[todo, setTodo] = useState(contents.map((content) => ({ content, time: getCurrentTime() })));
     const[doing, setDoing] = useState([]);
     const[done, setDone] = useState([]);
-    const [showTime, setShowTime] = useState(getCurrentTime());
+    // const [showTime, setShowTime] = useState(getCurrentTime());
 
     const moveTaskToDoing = (task)=>{
-        const updatedTodo = todo.filter((item) => item !== task);
+
+        // console.log(task.content);
+        const updatedTodo = todo.filter((item) => item.content !== task);
         setTodo(updatedTodo);
-        setDoing([...doing,task]);
-        setShowTime(getCurrentTime());
+        setDoing([...doing, { content: task, time: getCurrentTime() }]);
+        // setShowTime(getCurrentTime());
     }
 
     const moveTaskToDone = (task)=>{
-        const updatedDoing = doing.filter((item)=>item!==task);
+        const updatedDoing = doing.filter((item)=>item.content!==task);
         setDoing(updatedDoing);
-        setDone([...done,task]);
-        setShowTime(getCurrentTime());
+        setDone([...done, { content: task, time: getCurrentTime() }]);
+        // setShowTime(getCurrentTime());
     }
 
     return(
@@ -50,21 +52,21 @@ function Employee(){
                         <Stack spacing={2} direction="column">
                             <ListTitle>ToDo</ListTitle>
                             {todo.map((task) => (
-                                <ToDo content={task} onMoveToDoing={moveTaskToDoing} showTime={showTime}/>
+                                <ToDo content={task.content} onMoveToDoing={moveTaskToDoing} showTime={task.time}/>
                             ))}
                         </Stack>
 
                         <Stack spacing={2} direction="column">
                             <ListTitle>Doing</ListTitle>
                             {doing.map((task) => (
-                                <Doing content={task} onMoveToDone={moveTaskToDone} showTime={showTime}/>
+                                <Doing content={task.content} onMoveToDone={moveTaskToDone} showTime={task.time}/>
                             ))}
                         </Stack>
 
                         <Stack spacing={2} direction="column">
                             <ListTitle>Done</ListTitle>
                             {done.map((task) => (
-                                <Done content={task} showTime={showTime}/>
+                                <Done content={task.content} showTime={task.time}/>
                             ))}
                         </Stack>
                     </Stack>
