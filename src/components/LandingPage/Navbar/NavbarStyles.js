@@ -4,8 +4,8 @@ import { AppBar, Box, Button, Toolbar, Typography, makeStyles } from "@mui/mater
 export const StyledToolbar = styled(Toolbar)(({theme})=>({
  display:"flex",
  justifyContent:"space-between",
- background: "rgba(255, 255, 255, 0.2)",
-    backdropFilter: "blur(10px)",
+//  background: "rgba(255, 255, 255, 0.2)",
+    // backdropFilter: "blur(10px)",
     // border: "1px solid rgba(255, 255, 255, 0.125)",
 }))
 

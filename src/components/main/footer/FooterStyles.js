@@ -7,6 +7,6 @@ export const FooterArea = styled(Box)(({theme})=>({
     backgroundColor: "#333",
     color: "#fff",
     textAlign: "center",
-    padding: "2rem",
+    padding: "2rem", 
     bottom: 0,
 }))
