@@ -1,28 +1,29 @@
 import {Box, Container, Divider, Stack, Typography } from "@mui/material";
 import NameAvatar from "./Avatar";
+import { Heading, OtherInfo, SubHeading } from "./UserMenuStyles";
+import { UserArea } from "./UserMenuStyles";
 
 function UserMenu(){
     return(
         <Box>
-        <Stack textAlign="center" direction="column" spacing={4} justifyContent="center" divider={<Divider orientation="horizontal" flexItem />}>
-            {/* <Stack> */}
+        <UserArea spacing={4} divider={<Divider orientation="horizontal" flexItem />}>
             <Container>
                 <NameAvatar name="Trello" />
-                <Typography variant="h4" mt={2}>Trello</Typography>
-                <Typography variant="body1">Trello@gmail.com</Typography>
+                <Heading mt={2}>Trello</Heading>
+                <SubHeading>Trello@gmail.com</SubHeading>
             </Container>
 
-            <Box sx={{textAlign: "center"}}>
-                <Typography variant="h5" mb={2}>Manager Details</Typography>
-                <Typography variant="body1" textAlign={"left"}>Manager's name: Trello</Typography>
-                <Typography variant="body1" textAlign={"left"}>Manager's ID: 12345</Typography>
-            </Box>
+            <OtherInfo>
+                <Heading mb={2}>Manager Details</Heading>
+                <SubHeading>Manager's name: Trello</SubHeading>
+                <SubHeading>Manager's ID: 12345</SubHeading>
+            </OtherInfo>
                
-            <Box sx={{textAlign: "center"}}>
-                <Typography variant="h5">Logout</Typography>
-            </Box>
+            <OtherInfo>
+                <Heading>Logout</Heading>
+            </OtherInfo>
                 
-        </Stack>
+        </UserArea>
       </Box>  
     )
 }
