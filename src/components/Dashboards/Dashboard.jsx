@@ -1,12 +1,13 @@
 import { Box, Divider, Grid, Stack } from "@mui/material";
-import DashNav from "../DashNav/DashNav";
-import { ListArea, ListTitle, UserArea } from "./employeeStyles";
-import UserMenu from "../UserMenu/UserMenu";
-import ToDo from "../Lists/ToDo";
-import Doing from "../Lists/Doing";
-import Done from "../Lists/Done";
+import DashNav from "./DashNav/DashNav";
+import { ListArea, ListTitle, UserArea } from "./DashboardStyles";
+import UserMenu from "./UserMenu/UserMenu";
+import ToDo from "./Lists/ToDo";
+import Doing from "./Lists/Doing";
+import Done from "./Lists/Done";
 import { useState } from "react";
-import { getCurrentTime } from "../Lists/time";
+import { getCurrentTime } from "./Lists/time";
+import CreateArea from "./Lists/CreateArea";
 
 const contents = ["first","second","third","fourth","fifth"];
 
@@ -15,6 +16,8 @@ function Employee(){
     const[todo, setTodo] = useState(contents.map((content) => ({ content, time: getCurrentTime() })));
     const[doing, setDoing] = useState([]);
     const[done, setDone] = useState([]);
+    const user = "manager";
+
     // const [showTime, setShowTime] = useState(getCurrentTime());
 
     const moveTaskToDoing = (task)=>{
@@ -51,22 +54,23 @@ function Employee(){
                 <Stack direction="row" spacing={5} justifyContent="space-evenly" divider={<Divider orientation="vertical" flexItem />}>
                         <Stack spacing={2} direction="column">
                             <ListTitle>ToDo</ListTitle>
+                            {user==="employee"?null:<CreateArea />}
                             {todo.map((task) => (
-                                <ToDo content={task.content} onMoveToDoing={moveTaskToDoing} showTime={task.time}/>
+                                <ToDo content={task.content} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}/>
                             ))}
                         </Stack>
 
                         <Stack spacing={2} direction="column">
                             <ListTitle>Doing</ListTitle>
                             {doing.map((task) => (
-                                <Doing content={task.content} onMoveToDone={moveTaskToDone} showTime={task.time}/>
+                                <Doing content={task.content} onMoveToDone={moveTaskToDone} showTime={task.time} user={user}/>
                             ))}
                         </Stack>
 
                         <Stack spacing={2} direction="column">
                             <ListTitle>Done</ListTitle>
                             {done.map((task) => (
-                                <Done content={task.content} showTime={task.time}/>
+                                <Done content={task.content} showTime={task.time} user={user}/>
                             ))}
                         </Stack>
                     </Stack>

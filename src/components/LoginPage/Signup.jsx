@@ -90,7 +90,7 @@ export default function Login() {
           />
         </ThemeProvider>
         <StyledButton size="lg">
-            <Linkbutton>SignUP</Linkbutton>
+            <Linkbutton to="/dashboard">SignUP</Linkbutton>
           </StyledButton>
           <LinkStyle to='/login'>
             Login Instead

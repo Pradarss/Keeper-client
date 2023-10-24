@@ -11,6 +11,16 @@ export const NoteArea = styled(Box)(({theme})=>({
     position: "relative",
    }))
 
+   export const CreateArea = styled(Box)(({theme})=>({
+    backgroundColor: "white",
+    // height: "100vh",
+    width: "240px",
+    minHeight: "75px",
+    padding: "2rem",
+    borderRadius: "20px",
+    position: "relative",
+   }))
+
    export const NoteContent = styled(Typography)(({theme})=>({
     fontSize: "1.1em",
     marginBottom: "10px",

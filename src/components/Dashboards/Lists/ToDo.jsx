@@ -3,7 +3,7 @@ import { DoneAvatar, NoteArea, NoteContent, NoteInfo, NoteTime } from "./ListSty
 import { useState } from 'react';
 function ToDo(props){
 
-    const [user, setUser] = useState(["employee"]);
+    // const [user, setUser] = useState(["manager"]);
 
     const handleMoveToDoing = ()=>{
         if (props.content) {
@@ -17,7 +17,7 @@ function ToDo(props){
         <NoteContent>{props.content}</NoteContent>
         <NoteInfo>
             <NoteTime variant="body2">{props.showTime}</NoteTime>
-            {user=="employee"?
+            {props.user==="employee"?
             <DoneAvatar>
                 <DoneIcon onClick={handleMoveToDoing} />
             </DoneAvatar>

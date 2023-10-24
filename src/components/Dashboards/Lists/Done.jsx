@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 function Done(props){
 
-  const [user, setUser] = useState(["manager"]);
+  // const [user, setUser] = useState(["manager"]);
 
     return(
         <NoteArea>
@@ -13,7 +13,7 @@ function Done(props){
         <NoteInfo>
           <NoteTime variant="body2">{props.showTime}</NoteTime>
           <DoneBy>By Trello</DoneBy>
-          {user=="employee"? null: <DoneAvatar>
+          {props.user==="employee"? null: <DoneAvatar>
                 <DeleteIcon />
             </DoneAvatar>}
         </NoteInfo>

@@ -49,7 +49,7 @@ export default function Login() {
           />
         </ThemeProvider>
         <StyledButton size="lg">
-          <Linkbutton>{currentOption === 'login' ? 'Login' : 'Sign Up'}</Linkbutton>
+        <Linkbutton to="/dashboard">{currentOption === 'login' ? 'Login' : 'Sign Up'}</Linkbutton>
         </StyledButton>
         <LinkStyle to={currentOption === 'login' ? '/signup' : '/login'}>
           {currentOption === 'login' ? 'Create Account' : 'Login Instead'}
