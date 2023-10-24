@@ -1,12 +1,12 @@
 import { Box, Divider, Grid, Stack } from "@mui/material";
 import DashNav from "../DashNav/DashNav";
 import { ListArea, ListTitle, UserArea } from "./employeeStyles";
-import UserMenu from "./UserMenu/UserMenu";
-import ToDo from "./Lists/ToDo";
-import Doing from "./Lists/Doing";
-import Done from "./Lists/Done";
+import UserMenu from "../UserMenu/UserMenu";
+import ToDo from "../Lists/ToDo";
+import Doing from "../Lists/Doing";
+import Done from "../Lists/Done";
 import { useState } from "react";
-import { getCurrentTime } from "./Lists/time";
+import { getCurrentTime } from "../Lists/time";
 
 const contents = ["first","second","third","fourth","fifth"];
 
