@@ -3,6 +3,7 @@ import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import { Link } from 'react-router-dom';
+import { createTheme} from '@mui/material/styles';
 
 
 export const StyledInput = styled(Input)(({ theme }) => ({
@@ -14,6 +15,24 @@ export const StyledInput = styled(Input)(({ theme }) => ({
   
   
 }));
+
+export const stylediv = {
+  display: 'flex',
+  flexDirection: "column",
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '80vh',
+  backgroundColor: '#D0D4CA',
+  padding: '15px'
+}
+
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#186F65',
+    },
+  },
+});
 
 export const changebutton= styled(Link)(({theme})=>({
   

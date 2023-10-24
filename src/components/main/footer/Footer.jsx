@@ -6,19 +6,19 @@ import { FooterArea, icons, iconstyle } from './FooterStyles';
 
 
 
-function Footer() {
-  return (
-    <FooterArea style={{ padding: '10px' }} >
-      <div style={{ marginTop: '10px' }}>
-        <div>
-          <h1 >Name</h1>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+function Footer(){
+    return(
+        <FooterArea style={{padding: '10px'}} >
+        <div style={{marginTop: '10px'}}>
+          <div>
+            <h1 >Name</h1>
+          </div>
+          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
           <div style={icons}>
 
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
               <InstagramIcon style={iconstyle} />
-
+              
             </a>
           </div>
           <div style={icons}>
@@ -33,13 +33,13 @@ function Footer() {
               <GitHubIcon style={iconstyle} />
             </a>
           </div>
+          </div>
         </div>
-      </div>
-      <div >
-        &copy; {new Date().getFullYear()} Name. All rights reserved.
-      </div>
-    </FooterArea>
-  )
+        <div >
+          &copy; {new Date().getFullYear()} Name. All rights reserved.
+        </div>
+      </FooterArea>
+    )
 }
 
 export default Footer;

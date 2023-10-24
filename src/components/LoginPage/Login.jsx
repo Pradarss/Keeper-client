@@ -1,25 +1,9 @@
 import * as React from 'react';
-import { StyledButton, StyledCard, StyledInput, CardContainer, LinkStyle, Linkbutton } from './Loginstyle';
+import { StyledButton, StyledCard, StyledInput, CardContainer, LinkStyle, Linkbutton, theme, stylediv } from './Loginstyle';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
-const stylediv = {
-  display: 'flex',
-  flexDirection: "column",
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: '80vh',
-  backgroundColor: '#D0D4CA',
-  padding: '15px'
-}
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#186F65',
-    },
-  },
-});
 
 export default function Login() {
   const [currentOption, setCurrentOption] = React.useState('login');
