@@ -5,7 +5,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 function Done(props){
 
-  // const [user, setUser] = useState(["manager"]);
+  // const user = "manager";
+
 
     return(
         <NoteArea>

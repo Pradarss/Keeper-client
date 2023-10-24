@@ -3,7 +3,7 @@ import { DoneAvatar, NoteArea, NoteContent, NoteInfo, NoteTime } from "./ListSty
 import { useState } from 'react';
 function ToDo(props){
 
-    // const [user, setUser] = useState(["manager"]);
+    // const user = "employee";
 
     const handleMoveToDoing = ()=>{
         if (props.content) {
