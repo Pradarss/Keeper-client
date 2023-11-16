@@ -19,6 +19,7 @@ export const NoteArea = styled(Box)(({theme})=>({
     padding: "2rem",
     borderRadius: "20px",
     position: "relative",
+    // display: "inline-table",
    }))
 
    export const NoteContent = styled(Typography)(({theme})=>({
@@ -30,7 +31,7 @@ export const NoteArea = styled(Box)(({theme})=>({
 
    export const DoneAvatar = styled(Avatar)(({theme})=>({
     position: "relative",
-    // float: "right",
+    float: "right",
     // marginRight:" 10px",
     color: "#14213d",
     border: "none",
@@ -76,3 +77,15 @@ export const NoteArea = styled(Box)(({theme})=>({
     gap: "35px",
     width: "242px"
    }))
+
+   export const  TextAreaStyle = {
+    width: "100%",
+    border: "none",
+    padding: "4px",
+    outline: "none",
+    fontSize: "1.2em",
+    fontFamily: "inherit",
+    resize: "none",
+    display: "inline-table",
+
+   }

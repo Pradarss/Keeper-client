@@ -7,15 +7,18 @@ import Doing from "./Lists/Doing";
 import Done from "./Lists/Done";
 import { useState } from "react";
 import { getCurrentTime } from "./Lists/time";
-import CreateArea from "./Lists/CreateArea";
+import CreateNoteArea from "./Lists/CreateNoteArea";
 
-const contents = ["first","second","third","fourth","fifth"];
+// const contents = ["first","second","third","fourth","fifth"];
 
 function Employee(){
 
-    const[todo, setTodo] = useState(contents.map((content) => ({ content, time: getCurrentTime() })));
+    const[todo, setTodo] = useState([]);
+    // const[todo, setTodo] = useState(contents.map((content) => ({ content, time: getCurrentTime() })));
     const[doing, setDoing] = useState([]);
     const[done, setDone] = useState([]);
+//   const [tasks, setTasks] = useState([]);
+
     const user = "manager";
 
     // const [showTime, setShowTime] = useState(getCurrentTime());
@@ -36,6 +39,20 @@ function Employee(){
         // setShowTime(getCurrentTime());
     }
 
+    function addTask(newTask){
+        // console.log(newTask);
+        setTodo((prevTasks) => [
+            ...prevTasks,
+            { content: newTask, time: getCurrentTime() }
+          ]);
+    }
+
+    function deleteTask(content){
+        setDone((prevTasks) =>
+            prevTasks.filter((task) => task.content !== content)
+          );
+    }
+
     return(
         <Box sx={{backgroundImage: "url('assets/dashbg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover",}}>
             <DashNav />
@@ -50,13 +67,13 @@ function Employee(){
             </Grid>
 
             <Grid item xs={10}>
-                <ListArea>
+                <ListArea>  
                 <Stack direction="row" spacing={5} justifyContent="space-evenly" divider={<Divider orientation="vertical" flexItem />}>
                         <Stack spacing={2} direction="column">
                             <ListTitle>ToDo</ListTitle>
-                            {/* {user==="employee"?null:<CreateArea />} */}
+                            {user==="employee"?null:<CreateNoteArea onAdd={addTask}/>}
                             {todo.map((task) => (
-                                <ToDo content={task.content} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}/>
+                                <ToDo key={task.content} content={task.content} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}/>
                             ))}
                         </Stack>
 
@@ -70,7 +87,7 @@ function Employee(){
                         <Stack spacing={2} direction="column">
                             <ListTitle>Done</ListTitle>
                             {done.map((task) => (
-                                <Done content={task.content} showTime={task.time} user={user}/>
+                                <Done content={task.content} showTime={task.time} user={user} onDelete={deleteTask}/>
                             ))}
                         </Stack>
                     </Stack>

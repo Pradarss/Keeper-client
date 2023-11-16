@@ -23,6 +23,7 @@ export default function Login() {
         <div style={{ fontFamily: 'Roboto Mono', fontSize: '4rem' }}>{currentOption === 'login' ? 'Login' : 'Sign Up'}</div>
         <ThemeProvider theme={theme}>
           <StyledInput
+          // type="email"
             placeholder="Email"
             sx={{
               '&::before': {
