@@ -37,7 +37,7 @@ export const theme = createTheme({
 export const ChangeButton= styled(Button)(({theme, isActive})=>({
     backgroundColor: isActive?'#F1EFEF':'#186F65',
     color: isActive?'black':'white',
-    height: '7vh',
+    height: '5vh',
     borderRadius: '4px 4px 0 0',
     padding: '0.5vh',
     '&:hover': {
