@@ -5,7 +5,7 @@ export const Heading = styled(Typography)(({theme})=>({
     // marginBottom: "5px",
     fontSize: "24px",
     textAlign: "center",
-    fontWeight: "400"
+    fontWeight: "500"
 }))
 
 export const SubHeading = styled(Typography)(({theme})=>({

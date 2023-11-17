@@ -4,7 +4,7 @@ import { Heading, OtherInfo, SubHeading } from "./UserMenuStyles";
 import { UserArea } from "./UserMenuStyles";
 import { Link } from "react-router-dom";
 
-function UserMenu(){
+function UserMenu(props){
     return(
         <Box>
         <UserArea spacing={4} divider={<Divider orientation="horizontal" flexItem />}>
@@ -14,11 +14,16 @@ function UserMenu(){
                 <SubHeading>Trello@gmail.com</SubHeading>
             </Container>
 
-            <OtherInfo>
+            {props.user==="employee"?<OtherInfo>
                 <Heading mb={2}>Manager Details</Heading>
                 <SubHeading>Manager's name: Trello</SubHeading>
                 <SubHeading>Manager's ID: 12345</SubHeading>
-            </OtherInfo>
+            </OtherInfo>:<OtherInfo>
+                <Heading mb={2}>Employee Details</Heading>
+                <SubHeading>Employee's name: Trello</SubHeading>
+                <SubHeading>Employee's name: Trello</SubHeading>
+                <SubHeading>Employee's name: Trello</SubHeading>
+            </OtherInfo>}
                
             <OtherInfo>
                 <Heading><Link style={{textDecoration: "none", color: "black"}} to="/logout">Logout</Link></Heading>

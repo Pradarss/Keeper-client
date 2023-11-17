@@ -5,8 +5,8 @@ import Footer from "./footer/Footer";
 import Home from "../LandingPage/Home/Home"
 import Login from "../LoginPage/Login";
 import SignUp from "../LoginPage/Signup";
-import Manager from "../Dashboards/manager/Manager";
-import Employee from "../Dashboards/employee/Employee";
+// import Manager from "../Dashboards/manager/manager";
+import Dashboard from "../Dashboards/Dashboard";
 // import Dashboard from "./Dashboard";
 
 function App(){
@@ -18,8 +18,8 @@ function App(){
                 <Route path="/" exact element={<Home />} />
                 <Route path="/login" exact element={<Login />} />
                 <Route path="/signup" exact element={<SignUp />} />
-                <Route path="/employee" exact element={<Employee />} />
-                <Route path="/manager" exact element={<Manager />} />
+                <Route path="/dashboard" exact element={<Dashboard />} />
+                {/* <Route path="/manager" exact element={<Manager />} /> */}
             </Routes>
 
             <Footer />

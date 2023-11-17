@@ -23,6 +23,7 @@ export default function Login() {
         <div style={{ fontFamily: 'Roboto Mono', fontSize: '4rem' }}>{currentOption === 'login' ? 'Login' : 'Sign Up'}</div>
         <ThemeProvider theme={theme}>
           <StyledInput
+          // type="email"
             placeholder="Email"
             sx={{
               '&::before': {
@@ -49,7 +50,7 @@ export default function Login() {
           />
         </ThemeProvider>
         <StyledButton size="lg">
-          <Linkbutton>{currentOption === 'login' ? 'Login' : 'Sign Up'}</Linkbutton>
+        <Linkbutton to="/dashboard">{currentOption === 'login' ? 'Login' : 'Sign Up'}</Linkbutton>
         </StyledButton>
         <LinkStyle to={currentOption === 'login' ? '/signup' : '/login'}>
           {currentOption === 'login' ? 'Create Account' : 'Login Instead'}

@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { DoneAvatar, DoneBy, NoteArea, NoteContent, NoteInfo, NoteTime } from "./ListStyles";
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 
 
 function Doing(props){
+
+    // const user = "employee";
+
 
     const handleMoveToDone = ()=>{
         if (props.content) {
@@ -17,9 +21,9 @@ function Doing(props){
         <NoteInfo>
             <NoteTime variant="body2">{props.showTime}</NoteTime>
             <DoneBy>By Trello</DoneBy>
-            <DoneAvatar>
+            {props.user==="employee"?<DoneAvatar>
                 <DoneAllIcon onClick={handleMoveToDone}/>
-            </DoneAvatar>
+            </DoneAvatar> : null}
         </NoteInfo>
       </NoteArea>
     )
