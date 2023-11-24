@@ -39,12 +39,32 @@ function Employee(){
         // setShowTime(getCurrentTime());
     }
 
+    // function addTask(newTask){
+    //     console.log(newTask);
+    //     setTodo((prevTasks) => [
+    //         ...prevTasks,
+    //         { content: newTask, time: getCurrentTime() }
+    //       ]);
+    // }
+
     function addTask(newTask){
-        // console.log(newTask);
-        setTodo((prevTasks) => [
+        fetch("http://localhost:5000/dashboard",{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(newTask),
+        })
+
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data){
+            setTodo((prevTasks) => [
             ...prevTasks,
-            { content: newTask, time: getCurrentTime() }
+            { task: newTask, time: getCurrentTime() }
           ]);
+        })
     }
 
     function deleteTask(content){
