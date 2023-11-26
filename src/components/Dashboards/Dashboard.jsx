@@ -54,17 +54,18 @@ function Employee(){
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify(newTask),
-        })
-
-        .then(function(response){
-            return response.json();
-        })
-        .then(function(data){
-            setTodo((prevTasks) => [
-            ...prevTasks,
-            { task: newTask, time: getCurrentTime() }
-          ]);
-        })
+            })
+            
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(savedTask){
+                setTodo((prevTasks) => [
+                    ...prevTasks,
+                    savedTask
+                ]);
+            })
+            console.log(newTask);
     }
 
     function deleteTask(content){

@@ -22,8 +22,8 @@ function CreateNoteArea({onAdd}){
     
       function addNote(event) {
         event.preventDefault();
-        if (newTask.task) {
-          onAdd(newTask.task);
+        if (newTask) {
+          onAdd(newTask);
           // console.log(newTask.task);
           setNewTask({
             task: ""
