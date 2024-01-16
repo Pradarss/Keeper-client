@@ -5,7 +5,7 @@ import UserMenu from "./UserMenu/UserMenu";
 import ToDo from "./Lists/ToDo";
 import Doing from "./Lists/Doing";
 import Done from "./Lists/Done";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getCurrentTime } from "./Lists/time";
 import CreateNoteArea from "./Lists/CreateNoteArea";
 
@@ -39,13 +39,42 @@ function Employee(){
         // setShowTime(getCurrentTime());
     }
 
+    // function addTask(newTask){
+    //     console.log(newTask);
+    //     setTodo((prevTasks) => [
+    //         ...prevTasks,
+    //         { content: newTask, time: getCurrentTime() }
+    //       ]);
+    // }
+
     function addTask(newTask){
-        // console.log(newTask);
-        setTodo((prevTasks) => [
-            ...prevTasks,
-            { content: newTask, time: getCurrentTime() }
-          ]);
+        fetch("http://localhost:5000/dashboard",{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(newTask),
+            })
+            
+            .then(function(response){
+                return response.json();
+            })
     }
+
+    useEffect(() => {
+        // Fetch tasks from the backend API when the component mounts
+        fetch("http://localhost:5000/dashboard")
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+            // setTodo((prevTasks) => [
+            //     ...prevTasks,
+            //     data
+            // ]);
+            setTodo(data);
+          })
+          .catch(error => console.error("Error fetching tasks:", error));
+      }, []);
 
     function deleteTask(content){
         setDone((prevTasks) =>
@@ -61,7 +90,7 @@ function Employee(){
             <Grid item xs={2}>  
 
                 <UserArea>
-                    <UserMenu />
+                    <UserMenu user={user}/>
                 </UserArea>
 
             </Grid>
