@@ -1,21 +1,32 @@
 import * as React from 'react';
-import { StyledButton, StyledCard, StyledInput, CardContainer, LinkStyle, Linkbutton, theme, stylediv,userstyle, ChangeButton } from './Loginstyle';
+import { StyledButton, StyledCard, StyledInput, CardContainer, LinkStyle, Linkbutton, theme, stylediv,userstyle, ChangeButton, divstyle, divs } from './Loginstyle';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Button } from 'bootstrap';
 
 export default function Login() {
   const [currentOption, setCurrentOption] = React.useState('login');
-  
+  const [form, setform]= React.useState({});
   
   // const [activebutton, setActiveButton]= React.useState('employee');
+  const handleForm=(e)=>{
+    setform({
+      ...form,
+      [e.target.name]:e.target.value,
+    });
+  }
 
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    console.log(form);
+  }
 
   return (
     <div style={stylediv}>
-      
       <CardContainer>
+        <form onSubmit={handleSubmit}>
+      {/* <p>{JSON.stringify(form)}</p> */}
 
-        <div style={{ fontFamily: 'Roboto Mono', fontSize: '4rem' }}>{currentOption === 'login' ? 'Login' : 'Sign Up'}</div>
+        <div style={divstyle}>Login</div>
         <ThemeProvider theme={theme}>
           <StyledInput
             // type="email"
@@ -29,6 +40,8 @@ export default function Login() {
                 outlineOffset: '2px',
               },
             }}
+            name="e-mail"
+            onChange={handleForm}
           />
           <StyledInput
             type="password"
@@ -42,15 +55,20 @@ export default function Login() {
                 outlineOffset: '2px',
               },
             }}
+            name="password"
+            onChange={handleForm}
           />
         
         </ThemeProvider>
-        <StyledButton size="lg">
-          <Linkbutton to="/dashboard">{currentOption === 'login' ? 'Login' : 'Sign Up'}</Linkbutton>
+        <div style={divs}>
+        <StyledButton size="lg" type="submit">
+          <Linkbutton to="/dashboard">Login</Linkbutton>
         </StyledButton>
+        </div>
         <LinkStyle to={currentOption === 'login' ? '/signup' : '/login'}>
-          {currentOption === 'login' ? 'Create Account' : 'Login Instead'}
+          Create Account
         </LinkStyle>
+        </form>
       </CardContainer>
     </div>
 
