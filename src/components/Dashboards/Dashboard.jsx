@@ -65,14 +65,7 @@ function Employee(){
         // Fetch tasks from the backend API when the component mounts
         fetch("http://localhost:5000/dashboard")
           .then(response => response.json())
-          .then(data => {
-            console.log(data);
-            // setTodo((prevTasks) => [
-            //     ...prevTasks,
-            //     data
-            // ]);
-            setTodo(data);
-          })
+          .then(data => setTodo(data))
           .catch(error => console.error("Error fetching tasks:", error));
       }, []);
 
@@ -102,7 +95,7 @@ function Employee(){
                             <ListTitle>ToDo</ListTitle>
                             {user==="employee"?null:<CreateNoteArea onAdd={addTask}/>}
                             {todo.map((task) => (
-                                <ToDo key={task.content} content={task.content} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}/>
+                                <ToDo key={task.task} content={task.task} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}  />
                             ))}
                         </Stack>
 
