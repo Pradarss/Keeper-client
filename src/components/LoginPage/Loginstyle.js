@@ -72,13 +72,32 @@ export const CardContainer = styled(Card)({
 export const LinkStyle= styled(Link)({
   textDecoration: 'none',
   paddingTop: 15,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
   '&:hover': {
     color: '#264653',
     textDecoration: 'underline',
   }
-})
+});
 
 export const Linkbutton= styled(Link)({
   textDecoration: 'none',
   color: 'inherit',
+});
+
+export const divstyle=({
+  fontFamily: 'Roboto Mono',
+  fontSize: '4rem',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+})
+
+export const divs=({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
 })
