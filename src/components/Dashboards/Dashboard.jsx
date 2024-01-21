@@ -59,6 +59,12 @@ function Employee(){
             .then(function(response){
                 return response.json();
             })
+            .then(function (savedTask) {
+                setTodo((prevTasks) => [
+                  ...prevTasks,
+                  { task: savedTask.task, time: savedTask.time, status: savedTask.status }
+                ]);
+              })
     }
 
     useEffect(() => {
@@ -74,6 +80,8 @@ function Employee(){
             prevTasks.filter((task) => task.content !== content)
           );
     }
+
+    
 
     return(
         <Box sx={{backgroundImage: "url('assets/dashbg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover",}}>
