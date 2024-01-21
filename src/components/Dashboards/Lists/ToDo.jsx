@@ -1,6 +1,5 @@
 import DoneIcon from '@mui/icons-material/Done';
 import { DoneAvatar, NoteArea, NoteContent, NoteInfo, NoteTime } from "./ListStyles";
-import { useState } from 'react';
 function ToDo(props){
 
     // const user = "employee";

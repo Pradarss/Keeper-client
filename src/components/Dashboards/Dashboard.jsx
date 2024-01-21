@@ -59,20 +59,19 @@ function Employee(){
             .then(function(response){
                 return response.json();
             })
+            .then(function (savedTask) {
+                setTodo((prevTasks) => [
+                  ...prevTasks,
+                  { task: savedTask.task, time: savedTask.time, status: savedTask.status }
+                ]);
+              })
     }
 
     useEffect(() => {
         // Fetch tasks from the backend API when the component mounts
         fetch("http://localhost:5000/dashboard")
           .then(response => response.json())
-          .then(data => {
-            console.log(data);
-            // setTodo((prevTasks) => [
-            //     ...prevTasks,
-            //     data
-            // ]);
-            setTodo(data);
-          })
+          .then(data => setTodo(data))
           .catch(error => console.error("Error fetching tasks:", error));
       }, []);
 
@@ -81,6 +80,8 @@ function Employee(){
             prevTasks.filter((task) => task.content !== content)
           );
     }
+
+    
 
     return(
         <Box sx={{backgroundImage: "url('assets/dashbg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover",}}>
@@ -102,7 +103,7 @@ function Employee(){
                             <ListTitle>ToDo</ListTitle>
                             {user==="employee"?null:<CreateNoteArea onAdd={addTask}/>}
                             {todo.map((task) => (
-                                <ToDo key={task.content} content={task.content} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}/>
+                                <ToDo key={task.task} content={task.task} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}  />
                             ))}
                         </Stack>
 
