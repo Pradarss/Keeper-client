@@ -49,9 +49,10 @@ export const ChangeButton= styled(Button)(({theme, isActive})=>({
 export const StyledButton = styled(Button)(({theme})=>({
     backgroundColor: '#F1EFEF',
     color: 'black', 
-    width: '50vh',
+    width: '51vh',  
     borderRadius: '20px',
     marginTop: '0.3vh',
+    marginLeft: '1vh',
     border: '1px solid #7D7C7C',
     '&:hover': {
         backgroundColor: '#264653',
@@ -84,6 +85,10 @@ export const LinkStyle= styled(Link)({
 export const Linkbutton= styled(Link)({
   textDecoration: 'none',
   color: 'inherit',
+  display:'flex',
+  flexDirection:'column',
+  justifyContent: 'center',
+  alignItems: 'center',
 });
 
 export const divstyle=({

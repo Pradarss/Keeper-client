@@ -31,7 +31,7 @@ export default function Login() {
         <ThemeProvider theme={theme}>
           <StyledInput
             // type="email"
-            placeholder="Email"
+            placeholder="Username"
             sx={{
               '&::before': {
                 display: 'none',
@@ -41,7 +41,7 @@ export default function Login() {
                 outlineOffset: '2px',
               },
             }}
-            name="e-mail"
+            name="Username"
             onChange={handleForm}
           />
           <StyledInput
