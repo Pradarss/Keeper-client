@@ -19,17 +19,34 @@ function Employee(){
     const[done, setDone] = useState([]);
 //   const [tasks, setTasks] = useState([]);
 
-    const user = "manager";
+    const user = "employee";
 
     // const [showTime, setShowTime] = useState(getCurrentTime());
 
-    const moveTaskToDoing = (task)=>{
+    // const moveTaskToDoing = (task)=>{
+    //     const updatedTodo = todo.filter((item) => item.content !== task);
+    //     setTodo(updatedTodo);
+    //     setDoing([...doing, { content: task, time: getCurrentTime() }]);
+    // }
 
-        // console.log(task.content);
-        const updatedTodo = todo.filter((item) => item.content !== task);
-        setTodo(updatedTodo);
-        setDoing([...doing, { content: task, time: getCurrentTime() }]);
-        // setShowTime(getCurrentTime());
+    function moveTaskToDoing(_id){
+        fetch("http://localhost:5000/dashboard/doing",{
+            method: "POST",
+            headers:{
+                'content-Type':'application/json',
+            },
+            body: JSON.stringify({id:_id}),
+        })
+
+        .then(function(response){
+            return response.json();
+        })
+
+        .then(function(savedTask){
+            const updatedTodo = todo.filter((savedTask) => savedTask._id !== _id);
+            setTodo(updatedTodo);
+            setDoing((prevTasks) => [...prevTasks,{ status : "DOING"}]);
+        })
     }
 
     const moveTaskToDone = (task)=>{
@@ -62,9 +79,10 @@ function Employee(){
             .then(function (savedTask) {
                 setTodo((prevTasks) => [
                   ...prevTasks,
-                  { task: savedTask.task, time: savedTask.time, status: savedTask.status }
+                  {id:savedTask._id, task: savedTask.task, time: savedTask.time, status: savedTask.status }
                 ]);
-              })
+            })
+            console.log(todo[todo.length - 1].id);
     }
 
     useEffect(() => {
@@ -103,7 +121,7 @@ function Employee(){
                             <ListTitle>ToDo</ListTitle>
                             {user==="employee"?null:<CreateNoteArea onAdd={addTask}/>}
                             {todo.map((task) => (
-                                <ToDo key={task.task} content={task.task} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}  />
+                                <ToDo key={task.id} content={task.task} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}  />
                             ))}
                         </Stack>
 

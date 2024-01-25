@@ -3,10 +3,12 @@ import { DoneAvatar, NoteArea, NoteContent, NoteInfo, NoteTime } from "./ListSty
 function ToDo(props){
 
     // const user = "employee";
+    // console.log(props);
 
     const handleMoveToDoing = ()=>{
+        console.log(props.key);
         if (props.content) {
-            props.onMoveToDoing(props.content);
+            props.onMoveToDoing(props.key);
         }
         // props.updateShowTime();
     }
