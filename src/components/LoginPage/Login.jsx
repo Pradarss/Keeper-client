@@ -17,7 +17,7 @@ export default function Login() {
 
   const handleSubmit=(e)=>{
     e.preventDefault();
-    fetch()
+    // fetch()
     console.log(form);
   }
 
@@ -63,7 +63,7 @@ export default function Login() {
         </ThemeProvider>
         <div style={divs}>
         <StyledButton size="lg" type="submit">
-          <Linkbutton to="/dashboard">Login</Linkbutton>
+          <Linkbutton >Login</Linkbutton>
         </StyledButton>
         </div>
         <LinkStyle to={currentOption === 'login' ? '/signup' : '/login'}>
