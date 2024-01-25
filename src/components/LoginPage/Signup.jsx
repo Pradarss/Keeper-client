@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { StyledButton, StyledCard, StyledInput, CardContainer, LinkStyle, Linkbutton, theme, stylediv, ChangeButton, divstyle } from './Loginstyle';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { StyledButton, StyledInput, CardContainer, LinkStyle, Linkbutton, theme, stylediv, ChangeButton, divstyle } from './Loginstyle';
+import {  ThemeProvider } from '@mui/material/styles';
 
 export default function Login() {
   const [currentOption, setCurrentOption] = React.useState('login');
