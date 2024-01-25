@@ -1,23 +1,22 @@
 import * as React from 'react';
 import { StyledButton, StyledInput, CardContainer, LinkStyle, Linkbutton, theme, stylediv, ChangeButton, divstyle } from './Loginstyle';
-import {  ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 
 export default function Login() {
   const [currentOption, setCurrentOption] = React.useState('login');
   const [UserType, setUserType] = React.useState('employee');
-  const [managerId, setManagerId] = React.useState('');
   const [form, setform] = React.useState({});
   const [password, setpassword] = React.useState('');
   const [confirmpassword, setconfirmpassword] = React.useState('');
   const [isError, setIsError] = React.useState(null)
-  // const [passwordMatch, setPasswordMatch]=React.useState(false);
+  const [passwordMatch, setPasswordMatch]=React.useState(false);
 
   const handleOptionChange = (option) => {
     setCurrentOption(option);
   }
 
   const handleForm = (e) => {
-    if(e.target.name==='password'){
+    if (e.target.name === 'password') {
       setpassword(e.target.value);
     }
     setform({
@@ -28,18 +27,24 @@ export default function Login() {
 
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(form);
+    if(passwordMatch){
+      e.preventDefault();
+      console.log(form);
+    }
+    else{
+      e.preventDefault();
+      alert("The Password should match");
+    }
   }
 
   const checkValidation = (e) => {
     setconfirmpassword(e.target.value);
-    if ( password === e.target.value) {
+    if (password === e.target.value) {
       setIsError("");
-      // setPasswordMatch(true);
-    }else{
-      // setPasswordMatch(false);
-      setIsError("Password should match");
+      setPasswordMatch(true);
+    } else {
+      setPasswordMatch(false);
+      setIsError("Password should match with Confirm Password");
     }
   }
 
@@ -55,7 +60,6 @@ export default function Login() {
 
       <CardContainer>
         <form onSubmit={handleSubmit}>
-          <div>{isError}</div>
           <div style={divstyle}>SignUP</div>
           <ThemeProvider theme={theme}>
             <StyledInput
@@ -117,12 +121,13 @@ export default function Login() {
                 },
               }}
             />
+            <div style={{ color: 'red', display: 'flex', justifyContent: 'center', fontStyle: 'italic'}}>{isError}</div>
             {UserType === 'employee' && (
               <StyledInput
                 name="id"
                 onChange={handleForm}
+                type="text"
                 placeholder="Manager ID"
-                value={managerId}
                 sx={{
                   '&::before': {
                     display: 'none',
