@@ -26,10 +26,18 @@ export default function Login() {
   };
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     if(passwordMatch){
       e.preventDefault();
-      console.log(form);
+      const response= await fetch('http://localhost:5000/signup',{
+        method: 'POST',
+        body: JSON.stringify(form),
+        headers:{
+           'Content-Type': 'application/JSON',
+        }
+      })
+      const data=await response.json();
+      console.log(data);
     }
     else{
       e.preventDefault();
