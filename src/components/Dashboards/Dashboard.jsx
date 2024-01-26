@@ -77,12 +77,13 @@ function Employee(){
                 return response.json();
             })
             .then(function (savedTask) {
+                console.log(savedTask);
                 setTodo((prevTasks) => [
                   ...prevTasks,
-                  {id:savedTask._id, task: savedTask.task, time: savedTask.time, status: savedTask.status }
+                  {_id:savedTask._id, task: savedTask.task, time: savedTask.time, status: savedTask.status }
                 ]);
             })
-            console.log(todo[todo.length - 1].id);
+            // console.log(todo[todo.length - 1].id);
     }
 
     useEffect(() => {
@@ -121,7 +122,7 @@ function Employee(){
                             <ListTitle>ToDo</ListTitle>
                             {user==="employee"?null:<CreateNoteArea onAdd={addTask}/>}
                             {todo.map((task) => (
-                                <ToDo key={task.id} content={task.task} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}  />
+                                <ToDo key={task._id} content={task.task} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}  />
                             ))}
                         </Stack>
 
