@@ -8,18 +8,19 @@ import Done from "./Lists/Done";
 import { useEffect, useState } from "react";
 import { getCurrentTime } from "./Lists/time";
 import CreateNoteArea from "./Lists/CreateNoteArea";
+import { useParams } from 'react-router-dom';
 
 // const contents = ["first","second","third","fourth","fifth"];
 
-function Employee(){
+function Dashboard(){
 
     const[todo, setTodo] = useState([]);
     // const[todo, setTodo] = useState(contents.map((content) => ({ content, time: getCurrentTime() })));
     const[doing, setDoing] = useState([]);
     const[done, setDone] = useState([]);
 //   const [tasks, setTasks] = useState([]);
-
-    const user = "employee";
+    const { userType } = useParams();
+    const user = userType === 'employee' ? 'employee' : 'manager';
 
     // const [showTime, setShowTime] = useState(getCurrentTime());
 
@@ -149,4 +150,4 @@ function Employee(){
   );
 }
 
-export default Employee;
+export default Dashboard;
