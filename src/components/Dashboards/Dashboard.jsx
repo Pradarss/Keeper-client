@@ -20,7 +20,7 @@ function Dashboard(){
     const[done, setDone] = useState([]);
 //   const [tasks, setTasks] = useState([]);
     const { userType } = useParams();
-    const user = userType === 'employee' ? 'employee' : 'manager';
+    const user = userType; 
 
     // const [showTime, setShowTime] = useState(getCurrentTime());
 
