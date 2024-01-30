@@ -8,18 +8,19 @@ import Done from "./Lists/Done";
 import { useEffect, useState } from "react";
 import { getCurrentTime } from "./Lists/time";
 import CreateNoteArea from "./Lists/CreateNoteArea";
+import { useParams } from 'react-router-dom';
 
 // const contents = ["first","second","third","fourth","fifth"];
 
-function Employee(){
+function Dashboard(){
 
     const[todo, setTodo] = useState([]);
     // const[todo, setTodo] = useState(contents.map((content) => ({ content, time: getCurrentTime() })));
     const[doing, setDoing] = useState([]);
     const[done, setDone] = useState([]);
 //   const [tasks, setTasks] = useState([]);
-
-    const user = "employee";
+    const { userType } = useParams();
+    const user = userType === 'employee' ? 'employee' : 'manager';
 
     // const [showTime, setShowTime] = useState(getCurrentTime());
 
@@ -77,12 +78,13 @@ function Employee(){
                 return response.json();
             })
             .then(function (savedTask) {
+                console.log(savedTask);
                 setTodo((prevTasks) => [
                   ...prevTasks,
-                  {id:savedTask._id, task: savedTask.task, time: savedTask.time, status: savedTask.status }
+                  {_id:savedTask._id, task: savedTask.task, time: savedTask.time, status: savedTask.status }
                 ]);
             })
-            console.log(todo[todo.length - 1].id);
+            // console.log(todo[todo.length - 1].id);
     }
 
     useEffect(() => {
@@ -121,7 +123,7 @@ function Employee(){
                             <ListTitle>ToDo</ListTitle>
                             {user==="employee"?null:<CreateNoteArea onAdd={addTask}/>}
                             {todo.map((task) => (
-                                <ToDo key={task.id} content={task.task} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}  />
+                                <ToDo key={task._id} content={task.task} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}  />
                             ))}
                         </Stack>
 
@@ -148,4 +150,4 @@ function Employee(){
   );
 }
 
-export default Employee;
+export default Dashboard;

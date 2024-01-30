@@ -2,6 +2,16 @@ import * as React from 'react';
 import { StyledButton, StyledInput, CardContainer, LinkStyle, Linkbutton, theme, stylediv, ChangeButton, divstyle } from './Loginstyle';
 import { ThemeProvider } from '@mui/material/styles';
 
+const inputStyles = {
+  '&::before': {
+    display: 'none',
+  },
+  '&:focus-within': {
+    outline: '2px solid var(--Input-focusedHighlight)',
+    outlineOffset: '2px',
+  },
+};
+
 export default function Login() {
   const [currentOption, setCurrentOption] = React.useState('login');
   const [UserType, setUserType] = React.useState('employee');
@@ -24,7 +34,6 @@ export default function Login() {
       [e.target.name]: e.target.value,
     });
   };
-
 
   const handleSubmit = async (e) => {
     if(passwordMatch){
@@ -74,44 +83,20 @@ export default function Login() {
               name="email"
               onChange={handleForm}
               placeholder="Email"
-              sx={{
-                '&::before': {
-                  display: 'none',
-                },
-                '&:focus-within': {
-                  outline: '2px solid var(--Input-focusedHighlight)',
-                  outlineOffset: '2px',
-                },
-              }}
+              sx={inputStyles}
             />
             <StyledInput
               name="username"
               onChange={handleForm}
               placeholder="UserName"
-              sx={{
-                '&::before': {
-                  display: 'none',
-                },
-                '&:focus-within': {
-                  outline: '2px solid var(--Input-focusedHighlight)',
-                  outlineOffset: '2px',
-                },
-              }}
+              sx={inputStyles}
             />
             <StyledInput
               name="password"
               onChange={handleForm}
               type="password"
               placeholder="Password"
-              sx={{
-                '&::before': {
-                  display: 'none',
-                },
-                '&:focus-within': {
-                  outline: '2px solid var(--Input-focusedHighlight)',
-                  outlineOffset: '2px',
-                },
-              }}
+              sx={inputStyles}
             />
             <StyledInput
               name="confirmpassword"
@@ -119,15 +104,7 @@ export default function Login() {
               onChange={checkValidation}
               type="password"
               placeholder="Confirm Password"
-              sx={{
-                '&::before': {
-                  display: 'none',
-                },
-                '&:focus-within': {
-                  outline: '2px solid var(--Input-focusedHighlight)',
-                  outlineOffset: '2px',
-                },
-              }}
+              sx={inputStyles}
             />
             <div style={{ color: 'red', display: 'flex', justifyContent: 'center', fontStyle: 'italic'}}>{isError}</div>
             {UserType === 'employee' && (
@@ -136,15 +113,7 @@ export default function Login() {
                 onChange={handleForm}
                 type="text"
                 placeholder="Manager ID"
-                sx={{
-                  '&::before': {
-                    display: 'none',
-                  },
-                  '&:focus-within': {
-                    outline: '2px solid var(--Input-focusedHighlight)',
-                    outlineOffset: '2px',
-                  },
-                }}
+                sx={inputStyles}
               />
             )}
           </ThemeProvider>
