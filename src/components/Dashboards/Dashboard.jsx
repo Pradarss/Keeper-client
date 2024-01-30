@@ -104,7 +104,7 @@ function Dashboard(){
     
 
     return(
-        <Box sx={{backgroundImage: "url('assets/dashbg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover",}}>
+        <Box sx={{backgroundImage: "url('assets/dashbg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundColor: "cadetblue"}}>
             <DashNav />
             <Grid container spacing={1} mt={1}>
 
