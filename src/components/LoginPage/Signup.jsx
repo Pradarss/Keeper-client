@@ -31,7 +31,7 @@ export default function Login() {
       e.preventDefault();
       const response= await fetch('http://localhost:5000/signup',{
         method: 'POST',
-        body: JSON.stringify(form),
+        body: JSON.stringify({...form, UserType}),
         headers:{
            'Content-Type': 'application/JSON',
         }
@@ -85,7 +85,7 @@ export default function Login() {
               }}
             />
             <StyledInput
-              name="UserName"
+              name="username"
               onChange={handleForm}
               placeholder="UserName"
               sx={{
@@ -132,7 +132,7 @@ export default function Login() {
             <div style={{ color: 'red', display: 'flex', justifyContent: 'center', fontStyle: 'italic'}}>{isError}</div>
             {UserType === 'employee' && (
               <StyledInput
-                name="id"
+                name="manager_id"
                 onChange={handleForm}
                 type="text"
                 placeholder="Manager ID"
