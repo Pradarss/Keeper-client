@@ -36,7 +36,7 @@ function Dashboard(){
             headers:{
                 'content-Type':'application/json',
             },
-            body: JSON.stringify({id:_id}),
+            body: JSON.stringify(_id),
         })
 
         .then(function(response){
@@ -78,13 +78,14 @@ function Dashboard(){
                 return response.json();
             })
             .then(function (savedTask) {
-                console.log(savedTask);
+                // console.log(savedTask);
                 setTodo((prevTasks) => [
                   ...prevTasks,
                   {_id:savedTask._id, task: savedTask.task, time: savedTask.time, status: savedTask.status }
                 ]);
             })
             // console.log(todo[todo.length - 1].id);
+            console.log(todo);
     }
 
     useEffect(() => {
@@ -123,7 +124,7 @@ function Dashboard(){
                             <ListTitle>ToDo</ListTitle>
                             {user==="employee"?null:<CreateNoteArea onAdd={addTask}/>}
                             {todo.map((task) => (
-                                <ToDo key={task._id} content={task.task} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}  />
+                                <ToDo id={task._id} content={task.task} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}  />
                             ))}
                         </Stack>
 

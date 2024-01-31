@@ -6,9 +6,9 @@ function ToDo(props){
     // console.log(props);
 
     const handleMoveToDoing = ()=>{
-        console.log(props.key);
+        // console.log(props);
         if (props.content) {
-            props.onMoveToDoing(props.key);
+            props.onMoveToDoing(props.id);
         }
         // props.updateShowTime();
     }
