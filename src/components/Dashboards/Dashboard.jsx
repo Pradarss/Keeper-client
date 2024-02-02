@@ -31,23 +31,31 @@ function Dashboard(){
     // }
 
     function moveTaskToDoing(_id){
-        fetch("http://localhost:5000/dashboard/doing",{
+        fetch("http://localhost:5000/dashboard/employee/doing",{
             method: "POST",
             headers:{
                 'content-Type':'application/json',
             },
-            body: JSON.stringify(_id),
+            body: JSON.stringify({id:_id}),
         })
 
         .then(function(response){
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
             return response.json();
         })
 
-        .then(function(savedTask){
+        .then(function(responseTask){
+            console.log(todo);
             const updatedTodo = todo.filter((savedTask) => savedTask._id !== _id);
-            setTodo(updatedTodo);
-            setDoing((prevTasks) => [...prevTasks,{ status : "DOING"}]);
+            console.log(updatedTodo);
+            setTodo([...updatedTodo]);
+            setDoing((prevTasks) => [...prevTasks,{_id:responseTask._id, task: responseTask.task, time: responseTask.time, status: responseTask.status }]);
         })
+        .catch(function (error) {
+            console.error('Error:', error);
+        });
     }
 
     const moveTaskToDone = (task)=>{
@@ -66,7 +74,7 @@ function Dashboard(){
     // }
 
     function addTask(newTask){
-        fetch("http://localhost:5000/dashboard",{
+        fetch("http://localhost:5000/dashboard/manager",{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -83,16 +91,19 @@ function Dashboard(){
                   ...prevTasks,
                   {_id:savedTask._id, task: savedTask.task, time: savedTask.time, status: savedTask.status }
                 ]);
+                console.log(todo);
             })
             // console.log(todo[todo.length - 1].id);
-            console.log(todo);
     }
 
     useEffect(() => {
         // Fetch tasks from the backend API when the component mounts
+ 
         fetch("http://localhost:5000/dashboard")
           .then(response => response.json())
-          .then(data => setTodo(data))
+          .then(data => {setTodo(data);
+            localStorage.setItem('todo', JSON.stringify(data));
+        })
           .catch(error => console.error("Error fetching tasks:", error));
       }, []);
 
@@ -101,8 +112,6 @@ function Dashboard(){
             prevTasks.filter((task) => task.content !== content)
           );
     }
-
-    
 
     return(
         <Box sx={{backgroundImage: "url('assets/dashbg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundColor: "cadetblue"}}>
@@ -131,7 +140,7 @@ function Dashboard(){
                         <Stack spacing={2} direction="column">
                             <ListTitle>Doing</ListTitle>
                             {doing.map((task) => (
-                                <Doing content={task.content} onMoveToDone={moveTaskToDone} showTime={task.time} user={user}/>
+                                <Doing id={task._id} content={task.task} onMoveToDone={moveTaskToDone} showTime={task.time} user={user}/>
                             ))}
                         </Stack>
 
