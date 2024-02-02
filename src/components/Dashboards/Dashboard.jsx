@@ -6,7 +6,7 @@ import ToDo from "./Lists/ToDo";
 import Doing from "./Lists/Doing";
 import Done from "./Lists/Done";
 import { useEffect, useState } from "react";
-import { getCurrentTime } from "./Lists/time";
+// import { getCurrentTime } from "./Lists/time";
 import CreateNoteArea from "./Lists/CreateNoteArea";
 import { useParams } from 'react-router-dom';
 
@@ -29,40 +29,46 @@ function Dashboard(){
     //     setTodo(updatedTodo);
     //     setDoing([...doing, { content: task, time: getCurrentTime() }]);
     // }
+    const moveTaskToStatus = (_id, status, setTodo, setDoing, setDone) => {
+        fetch(`http://localhost:5000/dashboard/employee/${status.toLowerCase()}`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id: _id }),
+        })
+            .then(response => response.json())
+            .then(responseTask => {
+                // Update the corresponding array based on the status
+                switch (status) {
+                    case 'TODO':
+                        setTodo(prevTasks => prevTasks.filter(task => task._id !== _id));
+                        break;
+                    case 'DOING':
+                        setDoing(prevTasks => [...prevTasks, { _id: responseTask._id, task: responseTask.task, time: responseTask.time, status: responseTask.status }]);
+                        break;
+                    case 'DONE':
+                        setDone(prevTasks => [...prevTasks, { _id: responseTask._id, task: responseTask.task, time: responseTask.time, status: responseTask.status }]);
+                        break;
+                    default:
+                        break;
+                }
+            })
+            .catch(error => console.error(`Error moving task to ${status}:`, error));
+    };
 
     function moveTaskToDoing(_id){
-        fetch("http://localhost:5000/dashboard/employee/doing",{
-            method: "POST",
-            headers:{
-                'content-Type':'application/json',
-            },
-            body: JSON.stringify({id:_id}),
-        })
-
-        .then(function(response){
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-
-        .then(function(responseTask){
-            console.log(todo);
-            const updatedTodo = todo.filter((savedTask) => savedTask._id !== _id);
-            console.log(updatedTodo);
-            setTodo([...updatedTodo]);
-            setDoing((prevTasks) => [...prevTasks,{_id:responseTask._id, task: responseTask.task, time: responseTask.time, status: responseTask.status }]);
-        })
-        .catch(function (error) {
-            console.error('Error:', error);
-        });
+        moveTaskToStatus(_id, 'DOING', setTodo, setDoing, setDone);
     }
 
-    const moveTaskToDone = (task)=>{
-        const updatedDoing = doing.filter((item)=>item.content!==task);
-        setDoing(updatedDoing);
-        setDone([...done, { content: task, time: getCurrentTime() }]);
-        // setShowTime(getCurrentTime());
+    // const moveTaskToDone = (task)=>{
+    //     const updatedDoing = doing.filter((item)=>item.content!==task);
+    //     setDoing(updatedDoing);
+    //     setDone([...done, { content: task, time: getCurrentTime() }]);
+    // }
+
+    function moveTaskToDone(_id){
+        moveTaskToStatus(_id, 'DONE', setTodo, setDoing, setDone);
     }
 
     // function addTask(newTask){
@@ -99,16 +105,27 @@ function Dashboard(){
     useEffect(() => {
         // Fetch tasks from the backend API when the component mounts
  
-        fetch("http://localhost:5000/dashboard")
+        fetch("http://localhost:5000/dashboard?status=TODO")
           .then(response => response.json())
           .then(data => {setTodo(data);
-            localStorage.setItem('todo', JSON.stringify(data));
         })
           .catch(error => console.error("Error fetching tasks:", error));
+
+          // Fetch 'DOING' tasks
+        fetch("http://localhost:5000/dashboard?status=DOING")
+        .then(response => response.json())
+        .then(data => setDoing(data))
+        .catch(error => console.error("Error fetching tasks:", error));
+
+        // Fetch 'DONE' tasks
+        fetch("http://localhost:5000/dashboard?status=DONE")
+        .then(response => response.json())
+        .then(data => setDone(data))
+        .catch(error => console.error("Error fetching tasks:", error));
       }, []);
 
     function deleteTask(content){
-        setDone((prevTasks) =>
+        setDone((prevTasks) => 
             prevTasks.filter((task) => task.content !== content)
           );
     }
