@@ -6,29 +6,17 @@ import ToDo from "./Lists/ToDo";
 import Doing from "./Lists/Doing";
 import Done from "./Lists/Done";
 import { useEffect, useState } from "react";
-// import { getCurrentTime } from "./Lists/time";
 import CreateNoteArea from "./Lists/CreateNoteArea";
 import { useParams } from 'react-router-dom';
-
-// const contents = ["first","second","third","fourth","fifth"];
 
 function Dashboard(){
 
     const[todo, setTodo] = useState([]);
-    // const[todo, setTodo] = useState(contents.map((content) => ({ content, time: getCurrentTime() })));
     const[doing, setDoing] = useState([]);
     const[done, setDone] = useState([]);
-//   const [tasks, setTasks] = useState([]);
     const { userType } = useParams();
     const user = userType; 
 
-    // const [showTime, setShowTime] = useState(getCurrentTime());
-
-    // const moveTaskToDoing = (task)=>{
-    //     const updatedTodo = todo.filter((item) => item.content !== task);
-    //     setTodo(updatedTodo);
-    //     setDoing([...doing, { content: task, time: getCurrentTime() }]);
-    // }
     const moveTaskToStatus = (_id, status, setTodo, setDoing, setDone) => {
         fetch(`http://localhost:5000/dashboard/employee/${status.toLowerCase()}`, {
             method: "POST",
@@ -39,7 +27,6 @@ function Dashboard(){
         })
             .then(response => response.json())
             .then(responseTask => {
-                // Update the corresponding array based on the status
                 switch (status) {
                     case 'TODO':
                         setTodo(prevTasks => prevTasks.filter(task => task._id !== _id));
@@ -63,23 +50,9 @@ function Dashboard(){
         moveTaskToStatus(_id, 'DOING', setTodo, setDoing, setDone);
     }
 
-    // const moveTaskToDone = (task)=>{
-    //     const updatedDoing = doing.filter((item)=>item.content!==task);
-    //     setDoing(updatedDoing);
-    //     setDone([...done, { content: task, time: getCurrentTime() }]);
-    // }
-
     function moveTaskToDone(_id){
         moveTaskToStatus(_id, 'DONE', setTodo, setDoing, setDone);
     }
-
-    // function addTask(newTask){
-    //     console.log(newTask);
-    //     setTodo((prevTasks) => [
-    //         ...prevTasks,
-    //         { content: newTask, time: getCurrentTime() }
-    //       ]);
-    // }
 
     function addTask(newTask){
         fetch("http://localhost:5000/dashboard/manager",{
@@ -94,18 +67,15 @@ function Dashboard(){
                 return response.json();
             })
             .then(function (savedTask) {
-                // console.log(savedTask);
                 setTodo((prevTasks) => [
                   ...prevTasks,
                   {_id:savedTask._id, task: savedTask.task, time: savedTask.time, status: savedTask.status }
                 ]);
                 console.log(todo);
             })
-            // console.log(todo[todo.length - 1].id);
     }
 
     useEffect(() => {
-        // Fetch tasks from the backend API when the component mounts
  
         fetch("http://localhost:5000/dashboard?status=TODO")
           .then(response => response.json())
@@ -113,23 +83,31 @@ function Dashboard(){
         })
           .catch(error => console.error("Error fetching tasks:", error));
 
-          // Fetch 'DOING' tasks
         fetch("http://localhost:5000/dashboard?status=DOING")
         .then(response => response.json())
         .then(data => setDoing(data))
         .catch(error => console.error("Error fetching tasks:", error));
 
-        // Fetch 'DONE' tasks
         fetch("http://localhost:5000/dashboard?status=DONE")
         .then(response => response.json())
         .then(data => setDone(data))
         .catch(error => console.error("Error fetching tasks:", error));
       }, []);
 
-    function deleteTask(content){
-        setDone((prevTasks) => 
-            prevTasks.filter((task) => task.content !== content)
-          );
+    function deleteTask(id){
+        fetch("http://localhost:5000/dashboard/manager",{
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({id: id}),
+            })
+            .then(response => response.json())
+            .then(deletedTask => {
+                console.log(deletedTask);
+                    setDone(prevTasks => prevTasks.filter(task => task._id !== id));
+    })
+    .catch(error => console.error("Error deleting task:", error));
     }
 
     return(

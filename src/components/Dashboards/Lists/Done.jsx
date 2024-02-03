@@ -9,7 +9,7 @@ function Done(props){
   const { onDelete } = props;
 
   function handleDelete(){
-    onDelete(props.content);
+    onDelete(props.id);
   }
 
 
