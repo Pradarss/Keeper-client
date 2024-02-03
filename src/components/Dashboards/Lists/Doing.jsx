@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { DoneAvatar, DoneBy, NoteArea, NoteContent, NoteInfo, NoteTime } from "./ListStyles";
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 
@@ -10,8 +10,7 @@ function Doing(props){
 
     const handleMoveToDone = ()=>{
         if (props.content) {
-            props.onMoveToDone(props.content);
-            // props.updateShowTime();
+            props.onMoveToDone(props.id);
         }
     }
 

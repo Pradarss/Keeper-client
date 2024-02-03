@@ -45,9 +45,11 @@ function Dashboard(){
                         setTodo(prevTasks => prevTasks.filter(task => task._id !== _id));
                         break;
                     case 'DOING':
+                        setTodo(prevTasks => prevTasks.filter(task => task._id !== _id));
                         setDoing(prevTasks => [...prevTasks, { _id: responseTask._id, task: responseTask.task, time: responseTask.time, status: responseTask.status }]);
                         break;
                     case 'DONE':
+                        setDoing(prevTasks => prevTasks.filter(task => task._id !== _id));
                         setDone(prevTasks => [...prevTasks, { _id: responseTask._id, task: responseTask.task, time: responseTask.time, status: responseTask.status }]);
                         break;
                     default:
@@ -164,7 +166,7 @@ function Dashboard(){
                         <Stack spacing={2} direction="column">
                             <ListTitle>Done</ListTitle>
                             {done.map((task) => (
-                                <Done content={task.content} showTime={task.time} user={user} onDelete={deleteTask}/>
+                                <Done id={task._id} content={task.task} showTime={task.time} user={user} onDelete={deleteTask}/>
                             ))}
                         </Stack>
                     </Stack>
