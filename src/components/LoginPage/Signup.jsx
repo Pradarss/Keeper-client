@@ -118,7 +118,7 @@ export default function Login() {
             )}
           </ThemeProvider>
           <StyledButton size="lg" type="submit">
-            <Linkbutton >SignUP</Linkbutton>
+            <Linkbutton>SignUP</Linkbutton>
           </StyledButton>
           <LinkStyle to='/login'>
             Login Instead

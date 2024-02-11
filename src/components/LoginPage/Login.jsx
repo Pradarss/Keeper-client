@@ -18,7 +18,7 @@ export default function Login() {
   const handleSubmit=(e)=>{
     e.preventDefault();
     // fetch()
-    console.log(form);
+    // console.log(form);
   }
 
   return (
