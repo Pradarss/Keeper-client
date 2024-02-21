@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { StyledButton,  StyledInput, CardContainer, LinkStyle, Linkbutton, theme, stylediv, divstyle, divs } from './Loginstyle';
 import {  ThemeProvider } from '@mui/material/styles';
-// import { Button } from 'bootstrap';
 
 export default function Login() {
   const [currentOption, setCurrentOption] = React.useState('login');
   const [form, setform]= React.useState({});
   
-  // const [activebutton, setActiveButton]= React.useState('employee');
   const handleForm=(e)=>{
     setform({
       ...form,
@@ -15,10 +13,17 @@ export default function Login() {
     });
   }
 
-  const handleSubmit=(e)=>{
+  const handleSubmit=async (e)=>{
     e.preventDefault();
-    // fetch()
-    // console.log(form);
+    const response= await fetch('http://localhost:5000/login',{
+      method: 'POST',
+      body: JSON.stringify({...form}),
+      headers:{
+        'Content-Type': 'application/JSON',
+      }
+    })
+    const data=await response.json();
+    console.log(data);
   }
 
   return (
