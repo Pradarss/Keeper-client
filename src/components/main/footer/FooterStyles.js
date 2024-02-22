@@ -6,7 +6,7 @@ export const iconstyle= {
     margin : '2px'
   }
   
-export const icons={border: '1px solid white', borderRadius: '50%', padding: '3px', margin: '2px'};
+export const icons={borderRadius: '50%', padding: '3px', margin: '2px'};
 
 export const FooterArea = styled(Box)(({theme})=>({
     width: "100%",

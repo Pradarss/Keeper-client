@@ -11,7 +11,7 @@ function Footer(){
         <FooterArea style={{padding: '10px'}} >
         <div style={{marginTop: '10px'}}>
           <div>
-            <h1 >Name</h1>
+            <h1 >Trello</h1>
           </div>
           <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
           <div style={icons}>
@@ -36,7 +36,7 @@ function Footer(){
           </div>
         </div>
         <div >
-          &copy; {new Date().getFullYear()} Name. All rights reserved.
+          &copy; {new Date().getFullYear()} Trello. All rights reserved.
         </div>
       </FooterArea>
     )
