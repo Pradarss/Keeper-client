@@ -5,8 +5,6 @@ import DoneAllIcon from '@mui/icons-material/DoneAll';
 
 function Doing(props){
 
-    // const user = "employee";
-
 
     const handleMoveToDone = ()=>{
         if (props.content) {
