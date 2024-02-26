@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { StyledButton,  StyledInput, CardContainer, LinkStyle, Linkbutton, theme, stylediv, divstyle, divs } from './Loginstyle';
 import {  ThemeProvider } from '@mui/material/styles';
+const params = new URLSearchParams('http://localhost:5000/dashboard?userType');
+const userType = params.get('userType');
 
 export default function Login() {
   const [currentOption, setCurrentOption] = React.useState('login');
@@ -24,6 +26,7 @@ export default function Login() {
     })
     const data=await response.json();
     console.log(data);
+    console.log("User Type:", userType);
   }
 
   return (
