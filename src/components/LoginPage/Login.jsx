@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { StyledButton,  StyledInput, CardContainer, LinkStyle, Linkbutton, theme, stylediv, divstyle, divs } from './Loginstyle';
 import {  ThemeProvider } from '@mui/material/styles';
-const params = new URLSearchParams('http://localhost:5000/dashboard?userType');
-const userType = params.get('userType');
+import { navigate } from 'react-router-dom';
 
 export default function Login() {
   const [currentOption, setCurrentOption] = React.useState('login');
@@ -24,9 +23,10 @@ export default function Login() {
         'Content-Type': 'application/JSON',
       }
     })
-    const data=await response.json();
-    console.log(data);
-    console.log("User Type:", userType);
+    if(res.status===201)
+    {
+      const data=await response.json();
+    }
   }
 
   return (
