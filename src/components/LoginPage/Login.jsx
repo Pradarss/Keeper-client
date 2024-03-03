@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { StyledButton,  StyledInput, CardContainer, LinkStyle, Linkbutton, theme, stylediv, divstyle, divs } from './Loginstyle';
 import {  ThemeProvider } from '@mui/material/styles';
-import { navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const navigate = useNavigate();
   const [currentOption, setCurrentOption] = React.useState('login');
   const [form, setform]= React.useState({});
   
@@ -23,9 +24,12 @@ export default function Login() {
         'Content-Type': 'application/JSON',
       }
     })
-    if(res.status===201)
+    if(response.status===200)
     {
       const data=await response.json();
+      console.log(data);
+      const userType= data.userType;
+      navigate(`/dashboard/${userType}`);
     }
   }
 
