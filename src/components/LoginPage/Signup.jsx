@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyledButton, StyledInput, CardContainer, LinkStyle, Linkbutton, theme, stylediv, ChangeButton, divstyle } from './Loginstyle';
 import { ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 const inputStyles = {
   '&::before': {
@@ -13,6 +14,7 @@ const inputStyles = {
 };
 
 export default function Login() {
+  const navigate=useNavigate();
   const [currentOption, setCurrentOption] = React.useState('login');
   const [UserType, setUserType] = React.useState('employee');
   const [form, setform] = React.useState({});
@@ -45,8 +47,13 @@ export default function Login() {
            'Content-Type': 'application/JSON',
         }
       })
+      if(response.status==201){
       const data=await response.json();
-      console.log(data);
+      // console.log(data);
+      const userType=data.userType;
+      // console.log(userType);
+      navigate(`/dashboard/${userType}`);
+      }
     }
     else{
       e.preventDefault();
