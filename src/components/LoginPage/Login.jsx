@@ -29,7 +29,7 @@ export default function Login() {
       const data=await response.json();
       console.log(data);
       const userType= data.userType;
-      navigate(`/dashboard/${userType}`);
+      navigate(`/dashboard/${userType}`, {state :{ data}});
     }
   }
 

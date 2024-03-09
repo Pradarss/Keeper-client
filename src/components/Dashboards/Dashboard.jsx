@@ -7,7 +7,7 @@ import Doing from "./Lists/Doing";
 import Done from "./Lists/Done";
 import { useEffect, useState } from "react";
 import CreateNoteArea from "./Lists/CreateNoteArea";
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 function Dashboard(){
 
@@ -15,7 +15,9 @@ function Dashboard(){
     const[doing, setDoing] = useState([]);
     const[done, setDone] = useState([]);
     const { userType } = useParams();
-    const user = userType; 
+    const location = useLocation();
+    const {user} = location.state.data; 
+    console.log(user);
 
     const moveTaskToStatus = (_id, status, setTodo, setDoing, setDone) => {
         fetch(`http://localhost:5000/dashboard/employee/${status.toLowerCase()}`, {
