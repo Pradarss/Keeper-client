@@ -7,17 +7,18 @@ import Doing from "./Lists/Doing";
 import Done from "./Lists/Done";
 import { useEffect, useState } from "react";
 import CreateNoteArea from "./Lists/CreateNoteArea";
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 function Dashboard(){
 
     const[todo, setTodo] = useState([]);
     const[doing, setDoing] = useState([]);
     const[done, setDone] = useState([]);
-    const { userType } = useParams();
+    // const { userType } = useParams();
+    // const user = "employee";
     const location = useLocation();
-    const {user} = location.state.data; 
-    console.log(user);
+    const {OtherUser} = location.state.data; 
+    const {user} = location.state.data;
 
     const moveTaskToStatus = (_id, status, setTodo, setDoing, setDone) => {
         fetch(`http://localhost:5000/dashboard/employee/${status.toLowerCase()}`, {
@@ -114,18 +115,18 @@ function Dashboard(){
 
     return(
         <Box sx={{backgroundImage: "url('assets/dashbg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundColor: "cadetblue"}}>
-            <DashNav />
+            <DashNav user={user}/>
             <Grid container spacing={1} mt={1}>
 
-            <Grid item xs={2}>  
+            <Grid item xs={2.5}>  
 
                 <UserArea>
-                    <UserMenu user={user}/>
+                    <UserMenu user={user} OtherUser={OtherUser}/>
                 </UserArea>
 
             </Grid>
 
-            <Grid item xs={10}>
+            <Grid item xs={9}>
                 <ListArea>  
                 <Stack direction="row" spacing={5} justifyContent="space-evenly" divider={<Divider orientation="vertical" flexItem />}>
                         <Stack spacing={2} direction="column">

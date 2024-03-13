@@ -3,30 +3,62 @@ import NameAvatar from "./Avatar";
 import { Heading, OtherInfo, SubHeading } from "./UserMenuStyles";
 import { UserArea } from "./UserMenuStyles";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
-function UserMenu(props){
+
+function UserMenu({user, OtherUser}){
+    const navigate = useNavigate();
+    let data = user.user;
+    // console.log(data.username)
+    const handleLogout = async () => {
+        try {
+          const response = await fetch('http://localhost:5000/logout', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            }, 
+          });
+    
+          if (response.ok) {
+            navigate('/login'); 
+          } else {
+            console.error('Logout failed:', response.statusText);
+          }
+        } catch (error) {
+          console.error('Network error:', error.message);
+        }
+      };
+
     return(
         <Box>
         <UserArea spacing={4} divider={<Divider orientation="horizontal" flexItem />}>
             <Container>
-                <NameAvatar name="Trello" />
-                <Heading mt={2}>Trello</Heading>
-                <SubHeading>Trello@gmail.com</SubHeading>
+                <NameAvatar name={data.username}/>
+                <Heading mt={2}>{data.username}</Heading>
+                <SubHeading>{data.email}</SubHeading>
             </Container>
 
-            {props.user==="employee"?<OtherInfo>
-                <Heading mb={2}>Manager Details</Heading>
-                <SubHeading>Manager's name: Trello</SubHeading>
-                <SubHeading>Manager's ID: 12345</SubHeading>
-            </OtherInfo>:<OtherInfo>
-                <Heading mb={2}>Employee Details</Heading>
-                <SubHeading>Employee's name: Trello</SubHeading>
-                <SubHeading>Employee's name: Trello</SubHeading>
-                <SubHeading>Employee's name: Trello</SubHeading>
-            </OtherInfo>}
+            {data.userType === "employee" ? (
+                <OtherInfo>
+                    <Heading mb={2}>Manager Details</Heading>
+                    <SubHeading>Name: {OtherUser.username}</SubHeading>
+                    <SubHeading>Email: {OtherUser.email}</SubHeading>
+                </OtherInfo>
+                ) : (
+                    <>
+                    <Heading mb={2}>Employee Details</Heading>
+                {OtherUser.map((employee, index) => (
+                    <OtherInfo key={index}>
+                    <SubHeading>Name: {employee.username}</SubHeading>
+                    <SubHeading>Email: {employee.email}</SubHeading>
+                    </OtherInfo>
+                ))}
+                </>
+                )}
+
                
             <OtherInfo>
-                <Heading><Link style={{textDecoration: "none", color: "black"}} to="/logout">Logout</Link></Heading>
+                <Heading><Link style={{textDecoration: "none", color: "black"}} to="/logout" onClick={handleLogout}>Logout</Link></Heading>
             </OtherInfo>
                 
         </UserArea>

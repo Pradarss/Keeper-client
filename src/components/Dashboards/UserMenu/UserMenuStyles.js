@@ -5,12 +5,15 @@ export const Heading = styled(Typography)(({theme})=>({
     // marginBottom: "5px",
     fontSize: "24px",
     textAlign: "center",
-    fontWeight: "500"
+    fontWeight: "500",
+    // display: "flex"
 }))
 
 export const SubHeading = styled(Typography)(({theme})=>({
     textAlign: "left",
-    fontSize: "15px"
+    fontSize: "15px",
+    display: "flex",
+    flexWrap: "nowrap"
 }))
 
 export const OtherInfo = styled(Box)(({theme})=>({
@@ -22,5 +25,6 @@ export const UserArea = styled(Stack)(({theme})=>({
     textAlign:"center",
     direction:"column",
     // spacing:4,
-    justifyContent:"center"
+    justifyContent:"center",
+    // minWidth: '20rem'
 }))
