@@ -19,6 +19,7 @@ function Dashboard(){
     const location = useLocation();
     const {OtherUser} = location.state.data; 
     const {user} = location.state.data;
+    console.log(user); 
 
     const moveTaskToStatus = (_id, status, setTodo, setDoing, setDone) => {
         fetch(`http://localhost:5000/dashboard/employee/${status.toLowerCase()}`, {

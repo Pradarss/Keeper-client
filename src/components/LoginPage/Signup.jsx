@@ -52,7 +52,7 @@ export default function Login() {
       // console.log(data);
       const userType=data.userType;
       // console.log(userType);
-      navigate(`/dashboard/${userType}`);
+      navigate(`/dashboard/${userType}`,{state :{ data}});
       }
     }
     else{
