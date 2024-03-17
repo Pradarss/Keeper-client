@@ -5,7 +5,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 function Done(props){
 
-  // const user = "manager";
+    const userType = props.user.user.userType;
+    // const user = "manager";
   const { onDelete } = props;
 
   function handleDelete(){
@@ -19,7 +20,7 @@ function Done(props){
         <NoteInfo>
           <NoteTime variant="body2">{props.showTime}</NoteTime>
           <DoneBy>By Trello</DoneBy>
-          {props.user==="employee"? null: <DoneAvatar>
+          {userType==="employee"? null: <DoneAvatar>
                 <DeleteIcon onClick={handleDelete}/>
             </DoneAvatar>}
         </NoteInfo>

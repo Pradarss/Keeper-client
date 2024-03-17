@@ -5,6 +5,7 @@ import DoneAllIcon from '@mui/icons-material/DoneAll';
 
 function Doing(props){
 
+    const userType = props.user.user.userType;
     // const user = "employee";
 
 
@@ -20,7 +21,7 @@ function Doing(props){
         <NoteInfo>
             <NoteTime variant="body2">{props.showTime}</NoteTime>
             <DoneBy>By Trello</DoneBy>
-            {props.user==="employee"?<DoneAvatar>
+            {userType==="employee"?<DoneAvatar>
                 <DoneAllIcon onClick={handleMoveToDone}/>
             </DoneAvatar> : null}
         </NoteInfo>

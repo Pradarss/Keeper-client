@@ -19,7 +19,8 @@ function Dashboard(){
     const location = useLocation();
     const {OtherUser} = location.state.data; 
     const {user} = location.state.data;
-    console.log(user); 
+    const {userType} = location.state.data;
+    console.log(userType); 
 
     const moveTaskToStatus = (_id, status, setTodo, setDoing, setDone) => {
         fetch(`http://localhost:5000/dashboard/employee/${status.toLowerCase()}`, {
@@ -132,7 +133,7 @@ function Dashboard(){
                 <Stack direction="row" spacing={5} justifyContent="space-evenly" divider={<Divider orientation="vertical" flexItem />}>
                         <Stack spacing={2} direction="column">
                             <ListTitle>ToDo</ListTitle>
-                            {user==="employee"?null:<CreateNoteArea onAdd={addTask}/>}
+                            {userType==="employee"?null:<CreateNoteArea onAdd={addTask}/>}
                             {todo.map((task) => (
                                 <ToDo id={task._id} content={task.task} onMoveToDoing={moveTaskToDoing} showTime={task.time} user={user}  />
                             ))}
