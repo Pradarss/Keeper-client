@@ -19,7 +19,8 @@ function Done(props){
         <NoteContent>{props.content}</NoteContent>
         <NoteInfo>
           <NoteTime variant="body2">{props.showTime}</NoteTime>
-          <DoneBy>By Trello</DoneBy>
+          <NoteTime variant="body2">{props.managerUsername}</NoteTime>
+          <DoneBy>{props.employeeUsername} </DoneBy>
           {userType==="employee"? null: <DoneAvatar>
                 <DeleteIcon onClick={handleDelete}/>
             </DoneAvatar>}

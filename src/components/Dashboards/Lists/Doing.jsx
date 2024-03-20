@@ -20,7 +20,8 @@ function Doing(props){
         <NoteContent>{props.content}</NoteContent>
         <NoteInfo>
             <NoteTime variant="body2">{props.showTime}</NoteTime>
-            <DoneBy>By Trello</DoneBy>
+            <NoteTime variant="body2">{props.managerUsername}</NoteTime>
+            <DoneBy>{props.employeeUsername} </DoneBy>
             {userType==="employee"?<DoneAvatar>
                 <DoneAllIcon onClick={handleMoveToDone}/>
             </DoneAvatar> : null}

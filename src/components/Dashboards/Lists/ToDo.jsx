@@ -2,6 +2,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import { DoneAvatar, NoteArea, NoteContent, NoteInfo, NoteTime } from "./ListStyles";
 function ToDo(props){
     const userType = props.user.user.userType;
+    console.log(userType);
     // const user = "employee";
     console.log(props);
 
@@ -18,6 +19,7 @@ function ToDo(props){
         <NoteContent>{props.content}</NoteContent>
         <NoteInfo>
             <NoteTime variant="body2">{props.showTime}</NoteTime>
+            <NoteTime variant="body2">{props.managerUsername}</NoteTime>
             {userType==="employee"?
             <DoneAvatar>
                 <DoneIcon onClick={handleMoveToDoing} />
