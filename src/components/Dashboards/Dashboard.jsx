@@ -20,9 +20,12 @@ function Dashboard() {
     const { OtherUser } = location.state.data;
     const { user } = location.state.data;
     const { userType } = location.state.data;
+    // console.log(OtherUser.username);
+    // console.log(user.user.username);
     // console.log(userType); 
-    console.log(user);
-
+    // console.log(user);
+    const UserName = user.user.userType==='manager'?user.user.username:OtherUser.username;
+    console.log(UserName);
     const moveTaskToStatus = (_id, status, setTodo, setDoing, setDone) => {
         const employeeUsername=user.user.username;
         fetch(`http://localhost:5000/dashboard/employee/${status.toLowerCase()}`, {
@@ -92,19 +95,20 @@ function Dashboard() {
 
     useEffect(() => {
 
-        fetch("http://localhost:5000/dashboard?status=TODO")
+        fetch(`http://localhost:5000/dashboard?status=TODO&manager_username=${UserName}`)
+
             .then(response => response.json())
             .then(data => {
                 setTodo(data);
             })
             .catch(error => console.error("Error fetching tasks:", error));
 
-        fetch("http://localhost:5000/dashboard?status=DOING")
+        fetch(`http://localhost:5000/dashboard?status=DOING&manager_username=${UserName}`)
             .then(response => response.json())
             .then(data => setDoing(data))
             .catch(error => console.error("Error fetching tasks:", error));
 
-        fetch("http://localhost:5000/dashboard?status=DONE")
+        fetch(`http://localhost:5000/dashboard?status=DONE&manager_username=${UserName}`)
             .then(response => response.json())
             .then(data => setDone(data))
             .catch(error => console.error("Error fetching tasks:", error));
@@ -125,7 +129,7 @@ function Dashboard() {
             })
             .catch(error => console.error("Error deleting task:", error));
     }
-
+    
     return (
         <Box sx={{ backgroundImage: "url('assets/dashbg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundColor: "cadetblue" }}>
             <DashNav user={user} />

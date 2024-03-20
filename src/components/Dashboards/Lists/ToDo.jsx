@@ -4,7 +4,7 @@ function ToDo(props){
     const userType = props.user.user.userType;
     console.log(userType);
     // const user = "employee";
-    console.log(props);
+    // console.log(props);
 
     const handleMoveToDoing = ()=>{
         // console.log(props);

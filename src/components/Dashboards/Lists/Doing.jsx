@@ -7,8 +7,7 @@ function Doing(props){
 
     const userType = props.user.user.userType;
     // const user = "employee";
-
-
+    // console.log(props);
     const handleMoveToDone = ()=>{
         if (props.content) {
             props.onMoveToDone(props.id);
@@ -22,7 +21,7 @@ function Doing(props){
             <NoteTime variant="body2">{props.showTime}</NoteTime>
             <NoteTime variant="body2">{props.managerUsername}</NoteTime>
             <DoneBy>{props.employeeUsername} </DoneBy>
-            {userType==="employee"?<DoneAvatar>
+            {userType==="employee" ?<DoneAvatar>
                 <DoneAllIcon onClick={handleMoveToDone}/>
             </DoneAvatar> : null}
         </NoteInfo>
