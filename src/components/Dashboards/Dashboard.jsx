@@ -25,7 +25,7 @@ function Dashboard() {
     // console.log(userType); 
     // console.log(user);
     const UserName = user.user.userType === 'manager' ? user.user.username : OtherUser.username;
-    console.log(UserName);
+    console.log( user);
     const moveTaskToStatus = (_id, status, setTodo, setDoing, setDone) => {
         const employeeUsername = user.user.username;
         fetch(`http://localhost:5000/dashboard/employee/${status.toLowerCase()}`, {

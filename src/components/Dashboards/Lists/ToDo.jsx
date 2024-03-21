@@ -19,12 +19,12 @@ function ToDo(props){
         <NoteContent>{props.content}</NoteContent>
         <NoteInfo>
             <NoteTime variant="body2">{props.showTime}</NoteTime>
-            <NoteTime variant="body2">{props.managerUsername}</NoteTime>
-            {userType==="employee"?
+            {/* <NoteTime variant="body2">{props.managerUsername}</NoteTime> */}
+            {userType==="employee"&&
             <DoneAvatar>
                 <DoneIcon onClick={handleMoveToDoing} />
             </DoneAvatar>
-            : null }
+             }
         </NoteInfo>
       </NoteArea>
     )

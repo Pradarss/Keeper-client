@@ -19,7 +19,7 @@ function Done(props){
         <NoteContent>{props.content}</NoteContent>
         <NoteInfo>
           <NoteTime variant="body2">{props.showTime}</NoteTime>
-          <NoteTime variant="body2">{props.managerUsername}</NoteTime>
+          {/* <NoteTime variant="body2">{props.managerUsername}</NoteTime> */}
           <DoneBy>{props.employeeUsername} </DoneBy>
           {userType==="employee"? null: <DoneAvatar>
                 <DeleteIcon onClick={handleDelete}/>
