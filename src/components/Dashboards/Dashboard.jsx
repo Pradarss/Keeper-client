@@ -24,10 +24,10 @@ function Dashboard() {
     // console.log(user.user.username);
     // console.log(userType); 
     // console.log(user);
-    const UserName = user.user.userType==='manager'?user.user.username:OtherUser.username;
+    const UserName = user.user.userType === 'manager' ? user.user.username : OtherUser.username;
     console.log(UserName);
     const moveTaskToStatus = (_id, status, setTodo, setDoing, setDone) => {
-        const employeeUsername=user.user.username;
+        const employeeUsername = user.user.username;
         fetch(`http://localhost:5000/dashboard/employee/${status.toLowerCase()}`, {
             method: "POST",
             headers: {
@@ -87,11 +87,11 @@ function Dashboard() {
                 // console.log('Saved Task:', savedTask);
                 setTodo((prevTasks) => [
                     ...prevTasks,
-                    { _id: savedTask._id, task: savedTask.task, time: savedTask.time, status: savedTask.status, manager_username: savedTask.manager_username}
+                    { _id: savedTask._id, task: savedTask.task, time: savedTask.time, status: savedTask.status, manager_username: savedTask.manager_username }
                 ]);
             })
-            console.log(todo);
-        }
+        console.log(todo);
+    }
 
     useEffect(() => {
 
@@ -129,7 +129,7 @@ function Dashboard() {
             })
             .catch(error => console.error("Error deleting task:", error));
     }
-    
+
     return (
         <Box sx={{ backgroundImage: "url('assets/dashbg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundColor: "cadetblue" }}>
             <DashNav user={user} />
@@ -150,16 +150,31 @@ function Dashboard() {
                                 <ListTitle>ToDo</ListTitle>
                                 {userType === "employee" ? null : <CreateNoteArea onAdd={addTask} />}
                                 {todo.map((task) => (
-                                    <ToDo id={task._id} content={task.task} onMoveToDoing={moveTaskToDoing} showTime={task.time} managerUsername={task.manager_username} user={user}/>
+                                    <ToDo id={task._id} content={task.task} onMoveToDoing={moveTaskToDoing} showTime={task.time} managerUsername={task.manager_username} user={user} />
                                 ))}
                             </Stack>
 
                             <Stack spacing={2} direction="column">
                                 <ListTitle>Doing</ListTitle>
-                                {doing.map((task) => (
-                                    <Doing id={task._id} content={task.task} onMoveToDone={moveTaskToDone} showTime={task.time} managerUsername={task.manager_username} employeeUsername={task.employee_username} user={user} />
-                                ))}
+
+                                {doing
+                                    .filter(task => userType === "manager" || (userType === "employee" && task.employee_username === user.user.username))
+                                    .map(task => (
+                                        <Doing
+                                            key={task._id}
+                                            id={task._id}
+                                            content={task.task}
+                                            onMoveToDone={moveTaskToDone}
+                                            showTime={task.time}
+                                            managerUsername={task.manager_username}
+                                            employeeUsername={task.employee_username}
+                                            user={user}
+                                        />
+                                    ))
+                                }
+
                             </Stack>
+
 
                             <Stack spacing={2} direction="column">
                                 <ListTitle>Done</ListTitle>
