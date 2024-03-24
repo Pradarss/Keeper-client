@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const navigate = useNavigate();
-  const [currentOption, setCurrentOption] = React.useState('login');
   const [form, setform]= React.useState({});
   
   const handleForm=(e)=>{
@@ -27,7 +26,6 @@ export default function Login() {
     if(response.status===200)
     {
       const data=await response.json();
-      // console.log(data);
       const userType= data.userType;
       navigate(`/dashboard/${userType}`, {state :{ data}});
     }
@@ -37,12 +35,10 @@ export default function Login() {
     <div style={stylediv}>
       <CardContainer>
         <form onSubmit={handleSubmit}>
-      {/* <p>{JSON.stringify(form)}</p> */}
-
         <div style={divstyle}>Login</div>
         <ThemeProvider theme={theme}>
           <StyledInput
-            // type="email"
+            type="email"
             placeholder="Username"
             sx={{
               '&::before': {
@@ -78,7 +74,7 @@ export default function Login() {
           <Linkbutton >Login</Linkbutton>
         </StyledButton>
         </div>
-        <LinkStyle to={currentOption === 'login' ? '/signup' : '/login'}>
+        <LinkStyle to='/signup'>
           Create Account
         </LinkStyle>
         </form>

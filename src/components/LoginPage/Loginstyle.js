@@ -61,7 +61,7 @@ export const StyledButton = styled(Button)(({theme})=>({
 }));
 
 export const CardContainer = styled(Card)({
-  maxWidth: 400, // Customize the card's maximum width as needed
+  maxWidth: 400, 
   padding: 50,
   display: 'flex',
   flexDirection: 'column',

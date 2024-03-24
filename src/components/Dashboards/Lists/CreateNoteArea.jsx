@@ -1,7 +1,5 @@
-// import { Fab, Zoom } from "@mui/material";
 import { CreateArea, DoneAvatar } from "./ListStyles";
 import AddIcon from '@mui/icons-material/Add';
-// import { useState } from "react";
 import { TextAreaStyle } from "./ListStyles";
 import { useState } from "react";
 
@@ -24,7 +22,6 @@ function CreateNoteArea({onAdd}){
         event.preventDefault();
         if (newTask.task) {
           onAdd(newTask);
-          // console.log(newTask.task);
           setNewTask({
             task: ""
           });

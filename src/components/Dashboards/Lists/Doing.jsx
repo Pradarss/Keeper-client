@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { DoneAvatar, DoneBy, NoteArea, NoteContent, NoteInfo, NoteTime } from "./ListStyles";
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 
@@ -6,8 +5,6 @@ import DoneAllIcon from '@mui/icons-material/DoneAll';
 function Doing(props){
 
     const userType = props.user.user.userType;
-    // const user = "employee";
-    // console.log(props);
     const handleMoveToDone = ()=>{
         if (props.content) {
             props.onMoveToDone(props.id);
@@ -19,7 +16,6 @@ function Doing(props){
         <NoteContent>{props.content}</NoteContent>
         <NoteInfo>
             <NoteTime variant="body2">{props.showTime}</NoteTime>
-            {/* <NoteTime variant="body2">{props.managerUsername}</NoteTime> */}
             <DoneBy>{props.employeeUsername} </DoneBy>
             {userType==="employee" ?<DoneAvatar>
                 <DoneAllIcon onClick={handleMoveToDone}/>

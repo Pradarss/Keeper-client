@@ -1,16 +1,21 @@
 import { Avatar } from "@mui/material";
 
 function NameAvatar({ name }) {
-  // Function to extract the first character of the name
-  const getFirstCharacter = (name) => {
-    return name ? name.charAt(0).toUpperCase() : '';
+  const getFirstCharacters = (name) => {
+    if (name) {
+      const [firstName, lastName] = name.split(" ");
+      const firstCharacter = firstName ? firstName.charAt(0).toUpperCase() : '';
+      const secondCharacter = lastName ? lastName.charAt(0).toUpperCase() : '';
+      return firstCharacter + secondCharacter;
+    }
+    return '';
   }
 
   return (
     <Avatar>
-      {getFirstCharacter(name)}
+      {getFirstCharacters(name)}
     </Avatar>
   );
 }
 
-  export default NameAvatar;
+export default NameAvatar;

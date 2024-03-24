@@ -3,7 +3,6 @@ import { Avatar, Box, Typography } from "@mui/material";
 
 export const NoteArea = styled(Box)(({theme})=>({
     backgroundColor: "white",
-    // height: "100vh",
     width: "240px",
     minHeight: "75px",
     padding: "2rem",
@@ -13,13 +12,11 @@ export const NoteArea = styled(Box)(({theme})=>({
 
    export const CreateArea = styled(Box)(({theme})=>({
     backgroundColor: "white",
-    // height: "100vh",
     width: "240px",
     minHeight: "75px",
     padding: "2rem",
     borderRadius: "20px",
     position: "relative",
-    // display: "inline-table",
    }))
 
    export const NoteContent = styled(Typography)(({theme})=>({
@@ -32,7 +29,6 @@ export const NoteArea = styled(Box)(({theme})=>({
    export const DoneAvatar = styled(Avatar)(({theme})=>({
     position: "relative",
     float: "right",
-    // marginRight:" 10px",
     color: "#14213d",
     border: "none",
     width: "36px",
@@ -46,7 +42,6 @@ export const NoteArea = styled(Box)(({theme})=>({
    
    export const NoteTime = styled(Typography)(({theme})=>({
     display: "flex",
-    // float: "left",
     fontSize: "10px",
     margin: "9px",
     backgroundColor: "#ced4da",
@@ -59,7 +54,6 @@ export const NoteArea = styled(Box)(({theme})=>({
       
    export const DoneBy = styled(Typography)(({theme})=>({
     display: "flex",
-    // float: "left",
     fontSize: "10px",
     margin: "9px",
     backgroundColor: "#ced4da",

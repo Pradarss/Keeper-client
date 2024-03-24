@@ -15,17 +15,12 @@ const inputStyles = {
 
 export default function Login() {
   const navigate=useNavigate();
-  const [currentOption, setCurrentOption] = React.useState('login');
   const [UserType, setUserType] = React.useState('employee');
   const [form, setform] = React.useState({});
   const [password, setpassword] = React.useState('');
   const [confirmpassword, setconfirmpassword] = React.useState('');
   const [isError, setIsError] = React.useState(null)
   const [passwordMatch, setPasswordMatch]=React.useState(false);
-
-  const handleOptionChange = (option) => {
-    setCurrentOption(option);
-  }
 
   const handleForm = (e) => {
     if (e.target.name === 'password') {
@@ -47,11 +42,9 @@ export default function Login() {
            'Content-Type': 'application/JSON',
         }
       })
-      if(response.status==201){
+      if(response.status===201){
       const data=await response.json();
-      // console.log(data);
       const userType=data.userType;
-      // console.log(userType);
       navigate(`/dashboard/${userType}`,{state :{ data}});
       }
     }

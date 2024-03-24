@@ -6,7 +6,6 @@ import { Buttonstyle, LinksArea, StyledToolbar } from "./NavbarStyles";
 function HomeNavbar() {
 
     return (
-        // <StyledAppbar>
         <StyledToolbar >
                 <Typography variant="h6"><Link to="/" style={{textDecoration: "none", fontSize: "2.5rem",fontFamily: 'Yanone Kaffeesatz',  color: "#264653"}} >Trello</Link></Typography>
             <LinksArea>

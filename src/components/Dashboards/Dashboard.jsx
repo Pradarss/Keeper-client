@@ -14,18 +14,11 @@ function Dashboard() {
     const [todo, setTodo] = useState([]);
     const [doing, setDoing] = useState([]);
     const [done, setDone] = useState([]);
-    // const { userType } = useParams();
-    // const user = "employee";
     const location = useLocation();
     const { OtherUser } = location.state.data;
     const { user } = location.state.data;
     const { userType } = location.state.data;
-    // console.log(OtherUser.username);
-    // console.log(user.user.username);
-    // console.log(userType); 
-    // console.log(user);
     const UserName = user.user.userType === 'manager' ? user.user.username : OtherUser.username;
-    console.log( user);
     const moveTaskToStatus = (_id, status, setTodo, setDoing, setDone) => {
         const employeeUsername = user.user.username;
         fetch(`http://localhost:5000/dashboard/employee/${status.toLowerCase()}`, {
@@ -66,12 +59,10 @@ function Dashboard() {
 
     function addTask(newTask) {
         const managerUsername = user.user.username;
-        // console.log('Manager Username:', managerUsername);
         const taskWithManager = {
             ...newTask,
             manager_username: managerUsername
         };
-        // console.log('Task with Manager:', taskWithManager);
         fetch("http://localhost:5000/dashboard/manager", {
             method: "POST",
             headers: {
@@ -84,7 +75,6 @@ function Dashboard() {
                 return response.json();
             })
             .then(function (savedTask) {
-                // console.log('Saved Task:', savedTask);
                 setTodo((prevTasks) => [
                     ...prevTasks,
                     { _id: savedTask._id, task: savedTask.task, time: savedTask.time, status: savedTask.status, manager_username: savedTask.manager_username }
@@ -112,7 +102,7 @@ function Dashboard() {
             .then(response => response.json())
             .then(data => setDone(data))
             .catch(error => console.error("Error fetching tasks:", error));
-    }, []);
+    }, [UserName]);
 
     function deleteTask(id) {
         fetch("http://localhost:5000/dashboard/manager", {

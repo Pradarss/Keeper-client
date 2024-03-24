@@ -15,10 +15,6 @@ const trelloCards = [
       title: "Labels and Categories",
       description: "Categorize cards using labels and colors for better organization.",
     },
-    // {
-    //   title: "Real-Time Collaboration",
-    //   description: "Collaborate with team members in real-time on shared boards and tasks.",
-    // },
   ];
 
   export default trelloCards;
