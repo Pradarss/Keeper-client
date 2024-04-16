@@ -12,7 +12,7 @@ function UserMenu({user, OtherUser}){
     // console.log(data.username)
     const handleLogout = async () => {
         try {
-          const response = await fetch('http://localhost:5000/logout', {
+          const response = await fetch('https://trelloserver-5f5w.onrender.com/logout', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
