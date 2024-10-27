@@ -16,7 +16,7 @@ export default function Login() {
 
   const handleSubmit=async (e)=>{
     e.preventDefault();
-    const response= await fetch('https://trelloserver-5f5w.onrender.com/login',{
+    const response= await fetch('http://localhost:5000/login',{
       method: 'POST',
       body: JSON.stringify({...form}),
       headers:{

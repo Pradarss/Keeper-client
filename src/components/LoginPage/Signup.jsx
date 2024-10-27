@@ -35,7 +35,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     if(passwordMatch){
       e.preventDefault();
-      const response= await fetch('https://trelloserver-5f5w.onrender.com/signup',{
+      const response= await fetch('http://localhost:5000/signup',{
         method: 'POST',
         body: JSON.stringify({...form, UserType}),
         headers:{

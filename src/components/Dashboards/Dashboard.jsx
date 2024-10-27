@@ -85,7 +85,7 @@ function Dashboard() {
 
     useEffect(() => {
 
-        fetch(`https://trelloserver-5f5w.onrender.com/dashboard?status=TODO&manager_username=${UserName}`)
+        fetch(`http://localhost:5000/dashboard?status=TODO&manager_username=${UserName}`)
 
             .then(response => response.json())
             .then(data => {
@@ -93,19 +93,19 @@ function Dashboard() {
             })
             .catch(error => console.error("Error fetching tasks:", error));
 
-        fetch(`https://trelloserver-5f5w.onrender.com/dashboard?status=DOING&manager_username=${UserName}`)
+        fetch(`http://localhost:5000/dashboard?status=DOING&manager_username=${UserName}`)
             .then(response => response.json())
             .then(data => setDoing(data))
             .catch(error => console.error("Error fetching tasks:", error));
 
-        fetch(`https://trelloserver-5f5w.onrender.com/dashboard?status=DONE&manager_username=${UserName}`)
+        fetch(`http://localhost:5000/dashboard?status=DONE&manager_username=${UserName}`)
             .then(response => response.json())
             .then(data => setDone(data))
             .catch(error => console.error("Error fetching tasks:", error));
     }, [UserName]);
 
     function deleteTask(id) {
-        fetch("https://trelloserver-5f5w.onrender.com/dashboard/manager", {
+        fetch("http://localhost:5000/dashboard/manager", {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json',
