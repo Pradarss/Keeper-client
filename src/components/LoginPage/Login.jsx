@@ -38,7 +38,7 @@ export default function Login() {
         <div style={divstyle}>Login</div>
         <ThemeProvider theme={theme}>
           <StyledInput
-            type="email"
+            // type="email"
             placeholder="Username"
             sx={{
               '&::before': {

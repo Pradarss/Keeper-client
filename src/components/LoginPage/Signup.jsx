@@ -65,6 +65,16 @@ export default function Login() {
     }
   }
 
+  useEffect(() => {
+    if (confpass !== "") {
+        if (password !== confpass) {
+            setHasError(true);
+        } else {
+            setHasError(false);
+        }
+    }
+}, [password, confpass]);
+
   const handleUserType = (type) => {
     setUserType(type);
   }

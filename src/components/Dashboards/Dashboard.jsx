@@ -21,7 +21,8 @@ function Dashboard() {
     const UserName = user.user.userType === 'manager' ? user.user.username : OtherUser.username;
     const moveTaskToStatus = (_id, status, setTodo, setDoing, setDone) => {
         const employeeUsername = user.user.username;
-        fetch(`https://trelloserver-5f5w.onrender.com/dashboard/employee/${status.toLowerCase()}`, {
+        // fetch(`https://trelloserver-5f5w.onrender.com/dashboard/employee/${status.toLowerCase()}`, {
+        fetch(`http://localhost:5000/dashboard/employee/${status.toLowerCase()}`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -63,7 +64,8 @@ function Dashboard() {
             ...newTask,
             manager_username: managerUsername
         };
-        fetch("https://trelloserver-5f5w.onrender.com/dashboard/manager", {
+        // fetch("https://trelloserver-5f5w.onrender.com/dashboard/manager", {
+        fetch("http://localhost:5000/dashboard/manager",{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
